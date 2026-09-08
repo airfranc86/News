@@ -5,8 +5,37 @@ import Link from 'next/link';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata = {
-  title: 'TechNews.sys | Intelligence & Future',
-  description: 'Análisis de vanguardia sobre Inteligencia Artificial y tecnología.',
+  title: {
+    default: 'TechNews.sys | Tecnología Aplicada & Vanguardia',
+    template: '%s | TechNews.sys',
+  },
+  description: 'Radar de tecnología aplicada a la realidad: Inteligencia Artificial, meteorología computacional, ciencia y fronteras digitales.',
+  keywords: ['Tecnología', 'Inteligencia Artificial', 'Meteorología', 'Ciencia', 'IoT', 'Futuro', 'TechNews'],
+  authors: [{ name: 'Francisco' }],
+  creator: 'Francisco',
+  metadataBase: new URL('https://airfranc-news.vercel.app'),
+  openGraph: {
+    title: 'TechNews.sys | Tecnología Aplicada & Vanguardia',
+    description: 'Análisis e impacto de la tecnología en la IA, el clima, la ciencia y la sociedad.',
+    url: 'https://airfranc-news.vercel.app',
+    siteName: 'TechNews.sys',
+    locale: 'es_ES',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TechNews.sys - Radar de Tecnología Aplicada',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TechNews.sys | Tecnología Aplicada',
+    description: 'Análisis e impacto de la tecnología en la IA, el clima, la ciencia y la sociedad.',
+    images: ['/og-image.jpg'],
+  },
 };
 
 export default function RootLayout({ children }) {
