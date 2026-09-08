@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <!-- Gradientes para darle un aspecto tecnológico moderno -->
+    <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="gradCyan" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+  </defs>
+
+  <!-- Pieza Izquierda (Stem vertical + diagonal) -->
+  <path d="M 20 15 
+           L 45 15 
+           L 45 45 
+           L 85 85 
+           L 60 85 
+           L 20 45 
+           Z" 
+        fill="url(#gradBlue)" />
+
+  <!-- Pieza Derecha (Stem vertical + diagonal superpuesta) -->
+  <path d="M 80 85 
+           L 55 85 
+           L 55 55 
+           L 15 15 
+           L 40 15 
+           L 80 55 
+           Z" 
+        fill="url(#gradCyan)" />
+</svg>
