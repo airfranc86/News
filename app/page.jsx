@@ -32,7 +32,7 @@ export default function Home() {
                 <span className="text-slate-500">10 min de lectura</span>
               </div>
               
-              <Link href="/bill-gates-ia" className="focus:outline-none">
+              <Link href="/bill-gates-ai" className="focus:outline-none">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-sky-400 transition-colors mb-4">
                   Un Cambio Epochal: La Era de la Inteligencia Artificial ha Comenzado
                 </h2>
@@ -62,7 +62,7 @@ export default function Home() {
             </div>
             <h3 className="text-slate-300 font-semibold text-sm mb-1">Próxima publicación</h3>
             <p className="text-slate-500 text-xs max-w-[200px]">
-              El equipo editorial está preparando nuevo contenido sobre modelos LLM.
+              El equipo está preparando nuevo contenido.
             </p>
           </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
           />
           <div>
             <p className="text-slate-300 font-sans font-semibold text-sm">TechNews.sys Editor</p>
-            <p className="text-slate-500">Curado por Franco</p>
+            <p className="text-slate-500">Creado por Francisco</p>
           </div>
         </div>
 

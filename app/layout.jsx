@@ -29,9 +29,6 @@ export default function RootLayout({ children }) {
             <nav className="flex items-center gap-6 text-sm font-medium text-slate-400">
               <Link href="/" className="hover:text-sky-400 transition-colors">Inicio</Link>
               <Link href="/bill-gates-ia" className="hover:text-sky-400 transition-colors">Artículos</Link>
-              <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-mono font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20">
-                v1.0.0
-              </span>
             </nav>
           </div>
         </header>
