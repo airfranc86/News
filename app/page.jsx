@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-grow">
         {/* Tarjeta de Noticia 1 */}
-        <Link href="/bill-gates-ia" className="block bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-sky-400 hover:-translate-y-1 transition-all shadow-lg">
+        <Link href="/bill-gates-ai" className="block bg-gray-900 border border-gray-800 rounded-xl p-6 hover:border-sky-400 hover:-translate-y-1 transition-all shadow-lg">
           <span className="text-xs font-mono text-purple-400 uppercase mb-3 block">Opinión / AI</span>
           <h2 className="text-2xl font-bold text-white mb-3">Un Cambio Epochal: La Era de la IA</h2>
           <p className="text-gray-400 mb-6 text-sm">El plan crítico para asegurar que lo bueno supere a lo malo en la transición tecnológica.</p>
@@ -25,7 +25,7 @@ export default function Home() {
       {/* --- INICIO DEL FOOTER --- */}
       <footer className="mt-16 pt-8 border-t border-gray-800 flex items-center justify-center gap-4 text-gray-400 font-mono text-sm">
         <img 
-          src="/tu-foto.jpg" 
+          src="/autor.jpg" 
           alt="Foto de perfil del creador" 
           className="w-10 h-10 rounded-full object-cover border-2 border-gray-700 hover:border-sky-400 transition-colors"
         />
