@@ -83,7 +83,7 @@ export default function Home() {
           </div>
         </div>
 
-        <p>© 2026 TechNews.sys — Desplegado con Next.js & Vercel</p>
+        <p>© 2026 TechNews.sys</p>
       </footer>
 
     </main>
