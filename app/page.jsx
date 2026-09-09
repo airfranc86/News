@@ -12,7 +12,7 @@ export default function Home() {
             SISTEMA OPERATIVO DE NOTICIAS
           </div>
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4">
-            Explorando el frontera de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">Inteligencia Artificial</span>
+            Explorando la frontera de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">Inteligencia Artificial</span>
           </h1>
           <p className="text-slate-400 max-w-2xl text-base sm:text-lg">
             Análisis críticos, ensayos de líderes de la industria y las transformaciones tecnológicas que están redefiniendo el futuro.
