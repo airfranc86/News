@@ -57,7 +57,7 @@ export default function RootLayout({ children }) {
             
             <nav className="flex items-center gap-6 text-sm font-medium text-slate-400">
               <Link href="/" className="hover:text-sky-400 transition-colors">Inicio</Link>
-              <Link href="/bill-gates-ia" className="hover:text-sky-400 transition-colors">Artículos</Link>
+              <Link href="/bill-gates-ai" className="hover:text-sky-400 transition-colors">Artículos</Link>
             </nav>
           </div>
         </header>
@@ -66,6 +66,25 @@ export default function RootLayout({ children }) {
         <div className="relative z-10 flex-grow">
           {children}
         </div>
+
+        {/* Footer Global */}
+        <footer className="relative z-10 border-t border-slate-800/80">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+            <div className="flex items-center gap-3">
+              <img
+                src="/autor.jpg"
+                alt="Autor"
+                className="w-9 h-9 rounded-full object-cover border border-slate-700"
+              />
+              <div>
+                <p className="text-slate-300 font-sans font-semibold text-sm">TechNews.sys Editor</p>
+                <p className="text-slate-500">Creado por Francisco</p>
+              </div>
+            </div>
+
+            <p>© 2026 TechNews.sys</p>
+          </div>
+        </footer>
       </body>
     </html>
   );

@@ -2,17 +2,15 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12 flex flex-col justify-between min-h-[calc(100vh-4rem)]">
-      
-      <div>
-        {/* Encabezado del Blog */}
+    <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      {/* Encabezado del Blog */}
         <section className="mb-12 text-center sm:text-left border-b border-slate-800/60 pb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs font-mono text-sky-400 mb-4">
             <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
             SISTEMA OPERATIVO DE NOTICIAS
           </div>
           <h1 className="text-4xl sm:text-6xl font-black tracking-tight text-white mb-4">
-            Explorando el frontera de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">Inteligencia Artificial</span>
+            Explorando la frontera de la <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-600">Inteligencia Artificial</span>
           </h1>
           <p className="text-slate-400 max-w-2xl text-base sm:text-lg">
             Análisis críticos, ensayos de líderes de la industria y las transformaciones tecnológicas que están redefiniendo el futuro.
@@ -32,7 +30,7 @@ export default function Home() {
                 <span className="text-slate-500">10 min de lectura</span>
               </div>
               
-              <Link href="/bill-gates-ai" className="focus:outline-none">
+              <Link href="/bill-gates-ai" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-xl">
                 <h2 className="text-2xl sm:text-3xl font-bold text-white group-hover:text-sky-400 transition-colors mb-4">
                   Un Cambio Epochal: La Era de la Inteligencia Artificial ha Comenzado
                 </h2>
@@ -67,25 +65,6 @@ export default function Home() {
           </div>
 
         </section>
-      </div>
-
-      {/* Footer Pro */}
-      <footer className="border-t border-slate-800/80 pt-8 mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-        <div className="flex items-center gap-3">
-          <img 
-            src="/autor.jpg" 
-            alt="Autor" 
-            className="w-9 h-9 rounded-full object-cover border border-slate-700"
-          />
-          <div>
-            <p className="text-slate-300 font-sans font-semibold text-sm">TechNews.sys Editor</p>
-            <p className="text-slate-500">Creado por Francisco</p>
-          </div>
-        </div>
-
-        <p>© 2026 TechNews.sys</p>
-      </footer>
-
     </main>
   );
 }
