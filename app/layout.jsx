@@ -3,7 +3,6 @@ import { Vollkorn, Source_Sans_3, JetBrains_Mono } from 'next/font/google';
 import Link from 'next/link';
 import RibbonTag from './components/RibbonTag';
 import BackToTop from './components/BackToTop';
-import { getFeaturedPost } from '../data/posts';
 
 const vollkorn = Vollkorn({ subsets: ['latin'], variable: '--font-vollkorn', weight: ['600', '700'] });
 const sourceSans = Source_Sans_3({ subsets: ['latin'], variable: '--font-source-sans' });
@@ -44,8 +43,6 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-  const featuredPost = getFeaturedPost();
-
   return (
     <html lang="es">
       <body className={`${vollkorn.variable} ${sourceSans.variable} ${jetbrainsMono.variable} font-sans bg-paper text-ink min-h-screen flex flex-col`}>
@@ -61,7 +58,7 @@ export default function RootLayout({ children }) {
 
             <nav className="flex items-center gap-4 sm:gap-6 font-mono text-xs uppercase tracking-widest text-ink-muted">
               <Link href="/" className="hover:text-ink underline decoration-transparent hover:decoration-ribbon underline-offset-4 transition-colors">Inicio</Link>
-              <Link href={`/${featuredPost.slug}`} className="hover:text-ink underline decoration-transparent hover:decoration-ribbon underline-offset-4 transition-colors">Artículos</Link>
+              <Link href="/" className="hover:text-ink underline decoration-transparent hover:decoration-ribbon underline-offset-4 transition-colors">Artículos</Link>
             </nav>
           </div>
         </header>

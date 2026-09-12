@@ -5,7 +5,7 @@ function renderInline(text) {
 
 export default function ArticleBody({ blocks }) {
   return (
-    <div className="p-8 md:p-12 text-ink text-lg leading-relaxed space-y-7 font-sans">
+    <div className="p-8 pr-16 md:p-12 text-ink text-lg leading-relaxed space-y-7 font-sans">
       {blocks.map((block, i) => {
         if (block.type === 'h3') {
           return (
