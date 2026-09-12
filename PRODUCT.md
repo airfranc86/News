@@ -33,8 +33,8 @@ Flujo editorial humano-en-el-loop, gobernado por AGENTS.md/CLAUDE.md del repo: F
 ## Brand Commitments
 
 - Nombre: **TechNews.sys**. Tagline: "Radar de Tecnología Aplicada". Concepto rector: "sistema operativo de noticias".
-- Estética Premium Dark Mode: fondo oscuro (`slate-950`), glassmorphism, brillos radiales estilo cyberpunk, badges de color por categoría (ej. cyan = meteorología, púrpura = IA).
-- Tipografía implementada: Inter. (El README menciona además Fira Code Mono para elementos monoespaciados; no está confirmado en el `layout.jsx` actual — verificar antes de asumirlo como decisión vigente.)
+- Estética "Cinta de Procedencia" (archivo/ledger): fondo claro papel de archivo (`#e8dfc8`), acento único rojo cinta (`#a13328`) reservado exclusivamente para marcas de procedencia (fuente, traducción, verificación) — nunca como color de link ambiental. Reemplaza la estética anterior de dark mode cyberpunk (`slate-950` + glow), descartada explícitamente en la sesión de rediseño de 2026-09-11 por sentirse genérica ("AI dark mode" por defecto). Ver `DESIGN.md` para el sistema completo.
+- Tipografía implementada: Vollkorn (display/serif), Source Sans 3 (cuerpo), JetBrains Mono (metadata/etiquetas).
 - Social Ready: metadata Open Graph / Twitter Card preconfigurada.
 
 ## Evidence on Hand

@@ -2,12 +2,12 @@
   <defs>
     <!-- Gradientes para darle un aspecto tecnológico moderno -->
     <linearGradient id="gradBlue" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284c7" />
-      <stop offset="100%" stop-color="#0369a1" />
+      <stop offset="0%" stop-color="#a13328" />
+      <stop offset="100%" stop-color="#7c2620" />
     </linearGradient>
     <linearGradient id="gradCyan" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#0284c7" />
+      <stop offset="0%" stop-color="#c65042" />
+      <stop offset="100%" stop-color="#a13328" />
     </linearGradient>
   </defs>
 

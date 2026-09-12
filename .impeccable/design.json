@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-11T00:00:00.000Z",
+  "title": "Design System: TechNews.sys",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Archival Buff", "canonical": "#e8dfc8", "tonalRamp": ["#3d3527", "#5c4f3a", "#7c6c4e", "#9c8863", "#c2ac82", "#ddd0ab", "#e8dfc8", "#f6f1e3"] },
+      "paper-raised": { "role": "neutral", "displayName": "Card Stock", "canonical": "#f1e9d4" },
+      "paper-deep": { "role": "neutral", "displayName": "Pressed Paper", "canonical": "#ddd0ab" },
+      "ink": { "role": "neutral", "displayName": "Ledger Ink", "canonical": "#211d17", "tonalRamp": ["#0f0d0a", "#211d17", "#3a342a", "#544b3d", "#6b6252", "#8c8371", "#b3ab9c", "#dcd6cb"] },
+      "ink-muted": { "role": "neutral", "displayName": "Faded Ink", "canonical": "#6b6252" },
+      "ribbon": { "role": "primary", "displayName": "Custody Ribbon Red", "canonical": "#a13328", "tonalRamp": ["#2e0d09", "#4a1510", "#661d17", "#82251e", "#a13328", "#c65042", "#dd8478", "#f0c2ba"] },
+      "ribbon-dark": { "role": "primary", "displayName": "Ribbon Red (Pressed)", "canonical": "#7c2620" },
+      "gap": { "role": "neutral", "displayName": "Silence Grey", "canonical": "#8a8f94" },
+      "rule": { "role": "neutral", "displayName": "Hairline Tan", "canonical": "#cabb98" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Ledger Display", "purpose": "Page and article H1s; in-article H3 section markers." },
+      "body": { "displayName": "Reading Sans", "purpose": "Long-form article prose and supporting copy." },
+      "label": { "displayName": "Catalog Mono", "purpose": "Custody-stamp metadata, nav labels, dated tags." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Record Card",
+      "kind": "card",
+      "refersTo": "record-card",
+      "description": "Home page featured-article card; also the base for the article page's outer container.",
+      "html": "<article class=\"ds-record\"><div class=\"ds-ribbon-tag\"></div><h2 class=\"ds-record-title\">Un Cambio Epochal</h2><p class=\"ds-record-body\">Bill Gates expone su visión...</p></article>",
+      "css": ".ds-record { position: relative; background: #f1e9d4; border: 1px solid #cabb98; padding: 32px 32px 24px; } .ds-ribbon-tag { position: absolute; top: -4px; left: 24px; width: 20px; height: 28px; background: #a13328; clip-path: polygon(0 0, 100% 0, 100% 79%, 50% 100%, 0 79%); } .ds-record-title { font-family: Vollkorn, Georgia, serif; font-weight: 700; font-size: 28px; color: #211d17; } .ds-record-body { font-family: 'Source Sans 3', system-ui, sans-serif; color: #6b6252; }"
+    },
+    {
+      "name": "Custody Stamp",
+      "kind": "custom",
+      "refersTo": "custody-stamp",
+      "description": "Small-caps metadata line showing source, author, and translation credit; always renders after the heading it describes.",
+      "html": "<div class=\"ds-custody\"><span class=\"ds-seal\"></span><span>FUENTE: GATESNOTES.COM  ·  TRADUCCIÓN: TECHNEWS.SYS</span></div>",
+      "css": ".ds-custody { display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: #6b6252; } .ds-seal { width: 8px; height: 8px; border-radius: 9999px; border: 1px solid #a13328; flex-shrink: 0; }"
+    },
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "404 recovery action; square, ink-bordered, fills red on hover.",
+      "html": "<a class=\"ds-btn-outline\">&larr; Volver al archivo</a>",
+      "css": ".ds-btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 2px solid #211d17; color: #211d17; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; transition: background 0.2s, border-color 0.2s, color 0.2s; } .ds-btn-outline:hover { background: #a13328; border-color: #a13328; color: #e8dfc8; } .ds-btn-outline:focus-visible { outline: 2px solid #a13328; outline-offset: 2px; }"
+    },
+    {
+      "name": "Citation Link",
+      "kind": "button",
+      "refersTo": "citation-link",
+      "description": "The one link that stays ribbon-red by default, because its function is provenance itself.",
+      "html": "<a class=\"ds-citation\">Ver publicación original -&gt;</a>",
+      "css": ".ds-citation { display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 1px solid #a13328; color: #a13328; font-family: 'JetBrains Mono', monospace; font-size: 14px; transition: background 0.2s, color 0.2s; } .ds-citation:hover { background: rgba(161,51,40,0.1); color: #7c2620; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Global header nav; ink text, red underline thread on hover.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\">Inicio</a><a class=\"ds-nav-link\">Artículos</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; } .ds-nav-link { color: #6b6252; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: color 0.2s, text-decoration-color 0.2s; } .ds-nav-link:hover { color: #211d17; text-decoration-color: #a13328; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Custody Ledger",
+    "overview": "TechNews.sys reads as an archive that shows its receipts, not a dashboard that announces itself. The site replaced its original near-black, neon-accent 'AI dark mode' with a warm archival ledger: buff paper, ink-black text, and exactly one accent, ribbon-red, reserved for the parts of the page that carry documented provenance rather than for ordinary interactive chrome. Every article is treated as a catalogued record, entering with a visible custody stamp instead of a generic category badge, and a small drawn ribbon-bookmark tag marks each record the way a physical bookmark ribbon marks a page.",
+    "keyCharacteristics": [
+      "Archival buff ground, never dark mode.",
+      "Ribbon-red is a meaning, not a link color.",
+      "No eyebrow labels above headings, anywhere.",
+      "One drawn signature mark repeats across every record."
+    ],
+    "rules": [
+      { "name": "The Custody-Only Rule", "body": "Ribbon-red never appears as an ambient link or navigation color. If an element's only job is 'this is clickable,' it stays ink with an underline; red is reserved for elements whose job is 'this is documented.'", "section": "colors" },
+      { "name": "The No-Eyebrow Rule", "body": "No label, badge, or kicker ever sits above a heading. Category, source, and reading-time metadata render after the heading it describes, never before.", "section": "typography" },
+      { "name": "The Flat-Ledger Rule", "body": "A record is a sheet of paper on a desk, not a floating card. Depth comes from a border and a value shift, never a blurred shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep Ribbon Red to provenance marks, citation links, and in-article section titles.",
+      "Do put the drawn RibbonTag mark on any new record surface to keep the signature consistent.",
+      "Do render a CustodyStamp after every article's heading block once real per-article source data exists."
+    ],
+    "donts": [
+      "Don't add a badge, pill, or eyebrow label above any heading.",
+      "Don't reintroduce shadows, gradients, or rounded corners.",
+      "Don't invent a publish date or a second source for the Bill Gates piece."
+    ]
+  }
+}

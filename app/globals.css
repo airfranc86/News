@@ -1,16 +1,46 @@
 @import "tailwindcss";
 
-/* Scrollbar personalizada */
+@theme {
+  --color-paper: #e8dfc8;
+  --color-paper-raised: #f1e9d4;
+  --color-paper-deep: #ddd0ab;
+  --color-ink: #211d17;
+  --color-ink-muted: #6b6252;
+  --color-ribbon: #a13328;
+  --color-ribbon-dark: #7c2620;
+  --color-gap: #8a8f94;
+  --color-rule: #cabb98;
+
+  --font-display: var(--font-vollkorn);
+  --font-sans: var(--font-source-sans);
+  --font-mono: var(--font-jetbrains-mono);
+}
+
+body {
+  caret-color: var(--color-ribbon);
+}
+
+::selection {
+  background: var(--color-ribbon);
+  color: var(--color-paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-ribbon);
+  outline-offset: 2px;
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #020617;
+  background: var(--color-paper);
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 4px;
+  background: var(--color-rule);
+  border-radius: 0;
+  border: 2px solid var(--color-paper);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #38bdf8;
+  background: var(--color-ribbon);
 }

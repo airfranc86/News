@@ -1,46 +1,47 @@
 import Link from 'next/link';
+import RibbonTag from '../components/RibbonTag';
+import CustodyStamp from '../components/CustodyStamp';
 
 export default function Article() {
   return (
-    <div className="max-w-3xl mx-auto py-10 px-4 sm:px-6">
+    <div className="max-w-3xl mx-auto py-10 sm:py-14 px-5 sm:px-8">
       {/* Navegación */}
       <nav className="mb-10">
-        <Link 
-          href="/" 
-          className="inline-flex items-center gap-2 text-sky-400 font-mono text-sm hover:text-white transition-colors"
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-ink-muted font-mono text-sm hover:text-ribbon transition-colors"
         >
-          <span>{'<-'}</span> Volver al Hub
+          <span>{'<-'}</span> Volver al archivo
         </Link>
       </nav>
 
-      {/* Contenedor Principal del Artículo */}
-      <article className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-        
-        {/* Cabecera del Artículo */}
-        <header className="p-8 md:p-12 border-b border-slate-800 bg-gradient-to-b from-sky-900/20 to-transparent">
-          <span className="inline-block font-mono text-xs text-sky-400 bg-sky-400/10 border border-sky-400/20 px-3 py-1 rounded-full mb-6 uppercase tracking-wider">
-            System.Essay // AI_Transition
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-4 tracking-tight">
+      {/* Contenedor Principal del Registro */}
+      <article className="relative bg-paper-raised border border-rule">
+        <RibbonTag className="absolute -top-1 left-8 md:left-12 w-6 h-8 text-ribbon" />
+
+        {/* Cabecera del Registro */}
+        <header className="p-8 md:p-12 border-b border-rule">
+          <h1 className="font-display text-4xl md:text-5xl font-bold text-ink leading-tight mb-4 tracking-tight">
             Un Cambio Epochal: La Era Turbulenta de la IA Está Aquí
           </h1>
-          <h2 className="text-xl text-slate-400 font-light mb-8">
+          <h2 className="text-xl text-ink-muted font-light mb-6">
             El Plan Crítico para Asegurar que lo Bueno Supere a lo Malo
           </h2>
-          
+          <CustodyStamp items={['FUENTE: GATESNOTES.COM', 'AUTOR: BILL GATES', 'TRADUCCIÓN: TECHNEWS.SYS']} className="mb-8" />
+
           <div className="flex items-center gap-4 mt-8">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-sky-400 to-purple-600 flex items-center justify-center font-bold text-white text-lg shadow-lg">
+            <div className="w-12 h-12 border-2 border-ink flex items-center justify-center font-display font-bold text-ink text-lg">
               BG
             </div>
             <div>
-              <p className="font-bold text-white">Bill Gates</p>
-              <p className="text-xs text-sky-400 font-mono">Co-fundador de Microsoft & Filántropo</p>
+              <p className="font-bold text-ink">Bill Gates</p>
+              <p className="text-xs text-ribbon font-mono uppercase tracking-wide">Co-fundador de Microsoft & Filántropo</p>
             </div>
           </div>
         </header>
 
-        {/* Cuerpo del Artículo (TEXTO COMPLETO) */}
-        <div className="p-8 md:p-12 text-slate-300 text-lg leading-relaxed space-y-7 font-sans">
+        {/* Cuerpo del Registro (TEXTO COMPLETO) */}
+        <div className="p-8 md:p-12 text-ink text-lg leading-relaxed space-y-7 font-sans">
           
           <p>
             Durante toda mi vida he tenido solo dos trabajos. En el primero, participé en el desarrollo de software para empoderar a las personas a través de mi trabajo en Microsoft. En el segundo, que comencé a tiempo completo en 2008, estoy devolviendo la riqueza que gané en Microsoft con el objetivo de hacer un mundo más saludable, mejor educado y más equitativo. Este es el trabajo que tendré para el resto de mi vida. Ambas experiencias informan mi perspectiva sobre la inteligencia artificial.
@@ -50,7 +51,7 @@ export default function Article() {
             Cuando aprendí sobre computadoras a los 13 años, me fascinó la idea de hacerlas más inteligentes y capaces de realizar cosas que, en ese momento, solo los humanos podían hacer. Aunque el término "IA" se usaba desde alrededor del momento de mi nacimiento, la tecnología solo ha hecho avances significativos en la última década. Ahora es increíblemente capaz y sigue mejorando a un ritmo alucinante. Por primera vez, la IA puede reemplazar y incluso superar la cognición humana.
           </p>
 
-          <blockquote className="my-10 p-6 md:p-8 bg-emerald-400/5 border-l-4 border-emerald-500 rounded-r-xl text-xl md:text-2xl italic text-slate-200 font-light">
+          <blockquote className="my-10 p-6 md:p-8 bg-paper border border-rule font-display text-xl md:text-2xl italic text-ink font-light">
             En términos de equidad, la IA será o el mayor igualador jamás inventado, o la peor fuente de injusticia. El desafío es monumental.
           </blockquote>
 
@@ -91,7 +92,7 @@ export default function Article() {
           </p>
 
           {/* RIESGO 1 */}
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Muchos empleos desaparecerán para siempre.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Muchos empleos desaparecerán para siempre.</h3>
           <p>
             En 1933, durante la Gran Depresión, el desempleo en Estados Unidos fue de aproximadamente el 25%. Permaneció en dígitos dobles durante gran parte de la década siguiente. Finalmente se recuperó a medida que la demanda, la inversión y el crecimiento retornaron. La IA puede no llegar a este nivel, pero su impacto no desaparecerá con un ciclo económico. Los empleos en mayor riesgo son los de nivel de entrada y medio, y los nuevos empleos que se creen requerirán principalmente habilidades que toman muchos años en aprender. Los empleos de cuello blanco ya están siendo afectados modestamente. Después de la adopción generalizada de la IA generativa, el empleo cayó significativamente entre los trabajadores jóvenes en empleos especialmente vulnerables al reemplazo, pero no entre sus colegas mayores. Creo que esta tendencia continuará, pero no se limitará a un puñado de industrias u ocupaciones. Los empleos en ventas y soporte al cliente (en línea y por teléfono), ingeniería de software y trabajo de paralegal pueden estar entre los primeros afectados, pero la disrupción llegará mucho más lejos a medida que la IA asuma tareas que hoy todavía requieren trabajadores entrenados: cosas como evaluar solicitudes de préstamos, hacer análisis de datos y incluso triar pacientes. Algunas áreas como la ingeniería de software generarán nueva demanda a medida que bajen los costos, por lo que la pérdida neta de empleos en esas áreas será menor que en otras siempre que algunas tareas, como el diseño, sean mejores hechas por humanos.
           </p>
@@ -105,7 +106,7 @@ export default function Article() {
           </p>
 
           {/* RIESGO 2 */}
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">La IA empoderará a las personas (y quizás a las IAs) para hacer más daño.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">La IA empoderará a las personas (y quizás a las IAs) para hacer más daño.</h3>
           <p>
             Mucho antes de que la IA entrara a la corriente principal, había información en línea sobre cómo crear armas como bombas, armas biológicas, incluso virus informáticos. La IA hará mucho más fácil no solo obtener esta información sino actuar sobre ella. Incluso criminales con muy pocas habilidades podrán atacar víctimas a todas las escalas: individuos, compañías y gobiernos. El fraude, la desinformación, los deepfakes y la vigilancia habilitados por IA son los daños que muchas personas sentirán más agudamente en sus vidas cotidianas. Las capacidades de la IA están comenzando a usarse para ciberataques. Los expertos de ciberseguridad más inteligentes que conozco están asustados por los próximos años, porque los atacantes están obteniendo nuevas capacidades poderosas más rápido que los defensores pueden arreglar todas las debilidades. Después de todo, el mismo modelo de IA que puede encontrar una falla en el software para que una compañía lo arregle también puede ayudar a un criminal a explotarlo. Los recursos necesarios para hacer un ataque están bajando significativamente y no hemos podido separar esas capacidades del uso benigno.
           </p>
@@ -115,7 +116,7 @@ export default function Article() {
           </p>
 
           {/* RIESGO 3 */}
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">La IA podría estancar el desarrollo de nuestros hijos y reemplazar las relaciones humanas.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">La IA podría estancar el desarrollo de nuestros hijos y reemplazar las relaciones humanas.</h3>
           <p>
             Cuando crecía en Seattle, no tenía muchos amigos además de un par de otros chicos como yo. Tomó mucho trabajo y mucha ayuda de mi mamá desarrollar mis habilidades sociales para que pudiera relacionarme con diferentes tipos de personas. Todavía dibujo de esas lecciones hoy a los 70 años. Dudo que hubiera puesto el mismo trabajo si hubiera tenido un compañero de IA en ese entonces. Hablan contigo de maneras en las que ya estás cómodo. No te empujan fuera de tu zona de confort. Están siempre disponibles y nunca se enojan contigo. Esto les da el potencial de volverse altamente adictivos y robar las lecciones que aprendemos de conectarnos con otras personas. El cuerpo de evidencia sobre este tema es aún pequeño y un poco mixto, pero hay señales de que deberíamos estar muy preocupados. Por ejemplo, en un estudio de más de 1,100 personas que usan compañeros de IA, investigadores en Stanford y Carnegie Mellon encontraron que aquellos con redes sociales más pequeñas eran los más propensos a recurrir a un chatbot por compañía. Y cuanto más pesado y emocionalmente personal que el uso se volvía, peor se sentían. Los jóvenes podrían verse afectados por toda su vida. En su libro "The Anxious Generation" (La Generación Ansiosa), Jonathan Haidt hace una observación sobre el efecto de las redes sociales que es aún más cierta para la IA: "Como árboles jóvenes expuestos al viento, los niños que son expuestos rutinariamente a pequeños riesgos crecen para convertirse en adultos que pueden manejar riesgos mucho más grandes sin entrar en pánico. Por el contrario, los niños que son criados en un invernadero protegido a veces se vuelven incapacitados por la ansiedad antes de alcanzar la madurez". Un compañero de IA diseñado para nunca enojarte es un gran invernadero protegido.
           </p>
@@ -129,7 +130,7 @@ export default function Article() {
           </p>
 
           {/* BENEFICIOS */}
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Las cosas buenas que hacemos con la IA podrían ser muy, muy buenas.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Las cosas buenas que hacemos con la IA podrían ser muy, muy buenas.</h3>
           <p>
             A menudo se dice que sobreestimamos cuánto cambiará a corto plazo y subestimamos cuánto cambiará a largo plazo. Con la IA, veo algo diferente ocurriendo. Algunas personas solo ven el lado positivo de la IA y no se enfocan lo suficiente en los negativos. Otros cometen el error opuesto, que es enfocarse exclusivamente en los peligros—que son reales—a costa de perderse los beneficios potenciales. Necesitamos ambos: profunda preocupación por los daños de la IA que necesitamos minimizar, y optimismo fundamentado sobre los positivos si los maximizamos para todos. Maximizar los beneficios es tan importante como minimizar los daños. Si la gente ve cómo la IA hace sus vidas más fáciles, ayudará a construir la confianza pública que es necesaria para manejar las partes más difíciles de la transición. Si la primera cosa que la IA hace en la vida de la mayoría de las personas es quitarles su trabajo, aquellos que ya son escépticos la rechazarán outright. Esto hará más difícil entregar los beneficios y es otra razón por la cual los gobiernos, industrias incluyendo la médica, y compañías de IA deberían estar trabajando juntas ahora.
           </p>
@@ -163,7 +164,7 @@ export default function Article() {
           </p>
 
           {/* EL PLAN */}
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">El mundo necesita un plan.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">El mundo necesita un plan.</h3>
           <p>
             Es grande que algunas compañías de IA propongan soluciones a desafíos planteados por su propia tecnología, pero no deberíamos esperar que lideren la carga. Algunos de los problemas están fuera de su área de experiencia, y en una sociedad democrática no es su rol decidir estas cosas. En cambio, las soluciones deberían ser desarrolladas a través de un proceso democrático público que incluya funcionarios electos, políticos, educadores, trabajadores de salud, funcionarios locales y líderes comunitarios. Millones de personas tendrán sus vidas interrumpidas, y necesitaremos una red de seguridad social más fuerte y flexible para ayudarlos a manejar la transición. Las comunidades locales ya están planteando preocupaciones sobre la energía y el agua necesarias para los centros de datos. Sin soluciones, algunos grupos empujarán para detener el desarrollo y despliegue de IA por completo. Las soluciones deberían ser moldeadas por nuestras respuestas a las preguntas profundas planteadas por la IA, incluyendo cómo preservamos nuestra humanidad en un tiempo cuando las máquinas pueden pensar más rápido que nosotros.
           </p>
@@ -172,7 +173,7 @@ export default function Article() {
             Como personas que pasan sus vidas pensando en lo que significa ser humano, los líderes religiosos pueden jugar un papel clave en esto. Me fascinó la encíclica del Papa León XIV sobre la IA, "Protegiendo a la Persona Humana en el Tiempo de la Inteligencia Artificial". Establece una base fuerte para el trabajo que necesita ser hecho. En los próximos meses, compartiré más ideas para asegurar que los beneficios de la IA superen el daño que causa. Aquí hay tres para comenzar, comenzando con lo que creo que es el más importante.
           </p>
 
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Construir un nuevo sistema para manejar la transición.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Construir un nuevo sistema para manejar la transición.</h3>
           <p>
             La máxima prioridad es una tarea monumental: crear un marco doméstico e internacional para lidiar con la IA. Ninguna de nuestras instituciones actuales fue diseñada para manejar una tecnología que se extiende tan rápido y toca tantas partes de nuestras vidas. Así que necesitaremos hacer nuevas. Es difícil sobreestimar lo enorme que será esta empresa. Después de los ataques del 11 de septiembre, el gobierno de EE. UU. pasó por su mayor reorganización desde la Segunda Guerra Mundial con el propósito de mejorar solo una función, seguridad nacional. La IA requerirá mucho, mucho más. Afectará seguridad nacional así como empleo, educación, impuestos, energía, elecciones, aire y agua, salud pública, sistema financiero, aplicación de la ley, transporte, tierras públicas y sistemas de TI. Estos sectores se superponen de maneras que nuestra burocracia existente no está diseñada para manejar. Un departamento de trabajo puede entender la disrupción de fuerza laboral pero no el riesgo de seguridad. Un regulador de negocios puede entender la concentración de mercado pero no los efectos de la IA en niños y adolescentes. Dejados a sí mismos, las instituciones verán solo una parte del sistema, mientras que las consecuencias de la IA se extenderán por todo el sistema.
           </p>
@@ -181,7 +182,7 @@ export default function Article() {
             A nivel nacional, los países necesitarán cuerpos que puedan establecer prioridades entre agencias gubernamentales. El objetivo será asegurar que cada riesgo sea contabilizado. De lo contrario, un ataque habilitado por IA podría tener éxito porque nadie pensó que era su trabajo detenerlo. Pero incluso un país que ordena su propia casa aún estará expuesto a riesgos que cruzan fronteras. Esto es por qué una organización internacional necesitará ser construida en paralelo. Será diferente a cualquier otra institución que hemos creado, aunque puede seguir el modelo de algunos sistemas existentes. Hay un régimen de inspección para armas nucleares, regulaciones para aviación internacional, y acuerdos que protegen la capa de ozono. Una nueva organización global para la IA necesitará elementos de los tres y más. Es justo preguntarse si las instituciones del mundo están a la altura de diseñar e implementar esta nueva arquitectura. El gobierno se mueve lento cuando se mueve en absoluto, y la polarización dentro y entre países hace más difícil que nunca obtener cosas hechas. Alguna cooperación entre EE. UU. y China será requerida. No tenemos el lujo de movernos lento. El lugar para comenzar es con un proceso para construir las instituciones correctas antes de que la disrupción fuerce a los gobiernos a modo de crisis. Los líderes nacionales deberían convocar economistas, tecnólogos, expertos laborales, líderes empresariales y trabajadores mismos regularmente para identificar dónde las instituciones existentes están fallando y qué nuevas autoridades pueden ser necesarias. Los países necesitarán aprender el uno del otro. Y los países que albergan los principales desarrolladores de IA y controlan partes críticas de la cadena de suministro deberían comenzar a reunirse ahora para establecer normas compartidas, antes de que la presión competitiva haga más difícil para ellos cooperar. Construir el marco de que estoy hablando tomará años, por lo que necesitamos comenzar ahora.
           </p>
 
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Reservar algunos trabajos para humanos.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Reservar algunos trabajos para humanos.</h3>
           <p>
             Mi papá murió de Alzheimer en 2020. En las etapas finales de su enfermedad, fue cuidado día y noche por cuidadores pagados que lo entendían incluso cuando luchaba para expresarse. Él no siempre podía decirles cuando tenía hambre, pero siempre lo sabían. Mi familia y yo siempre estaremos gratos a ese grupo increíble de profesionales. Algo en el cuidado que le dieron a mi papá era irremplazablemente humano. Ningún robot podría o debería haberlo hecho. Pienso en ese equipo cuando viene la pregunta de qué trabajos desaparecerán y cuáles permanecerán. Creo que a medida que la IA y los robots mejoren, reservaremos ciertas cosas para que solo las hagan personas. He comenzado a llamar a este dominio "Reservado para Humanos", y es un ejemplo de los tipos de ideas que necesitaremos considerar. Me gusta la frase "Reservado para Humanos" porque me hace pensar en reservas naturales—lugares donde podríamos poner edificios y carreteras, pero elegimos no hacerlo porque la pérdida sería demasiado grande. Podríamos reservar algo como Reservado para Humanos por razones económicas. Por ejemplo, podríamos hacerlo porque permitir que las máquinas tomen un cierto rol desplazará a un gran número de personas que no pueden cambiar de trabajo fácilmente. No puedes decirle a un trabajador de construcción de 55 años que ha trabajado en construcción toda su vida que necesita ir a trabajar en un centro de cuidado de ancianos y esperar que lo encuentren satisfactorio.
           </p>
@@ -190,12 +191,12 @@ export default function Article() {
             A veces la decisión de hacer algo Reservado para Humanos será impulsada por otros factores. En salud, por ejemplo, imagina un robot dándote la mala noticia de que tienes una enfermedad incurable. No hay razón técnica por la que no podría. Sin embargo no debería. El dominio Reservado para Humanos evolucionará con el tiempo—por ejemplo, deberíamos considerar reservar algunos trabajos ahora y implementar la IA lentamente a lo largo de años o décadas con un compromiso de preservar algunos trabajos. Algunas áreas, como educación y cuidado de salud mental, serán una mezcla, con un humano al mando que usa la tecnología para extender lo que pueden hacer. Las líneas también variarán de lugar a lugar. Algunos países podrían insistir en tener humanos cuidando a los ancianos. Pero un país como Japón, que tiene una fuerza laboral en shrinking y no suficientes jóvenes para cuidar a los viejos, podría aceptar un robot de cuidado. La idea de Reservado para Humanos plantea una serie de preguntas a las que no tengo respuestas. ¿Quién decide qué reservamos para humanos? ¿Qué criterios deberíamos usar? ¿Cómo evitas que las compañías hagan trampa y usen robots de todos modos? ¿Qué pasa con el comercio internacional cuando un país deja que robots hagan algo y otro país no? Estas necesitarán ser trabajadas en público como parte del plan de transición.
           </p>
 
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Reequilibrar cómo tributamos el trabajo y el capital.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Reequilibrar cómo tributamos el trabajo y el capital.</h3>
           <p>
             A medida que los trabajadores son empujados a diferentes empleos, necesitarán reentrenamiento y otro apoyo de la red de seguridad social. Pero trabajarán menos, lo que significa que pagarán menos en impuestos de ingreso, y los ingresos gubernamentales caerán justo cuando la demanda de esos servicios es mayor. Los fondos tendrán que venir de algún lugar en un tiempo cuando los presupuestos están estirados. Creo que deberíamos tributar tokens de IA y robots. Ahora mismo, si eres un empleador y contratas a alguien, pagas impuestos de nómina sobre sus ganancias. Pero si compras un robot, usualmente puedes escribirlo como gasto de negocio de inmediato. El sistema tributario te empuja a reemplazar personas con máquinas. Un tributo ralentizaría la carrera hacia away de la mano de obra humana un poco y levantaría dinero para reentrenamiento y una red de seguridad social más fuerte. Necesitaría ser dirigido para no ralentizar los usos puramente beneficiosos de la IA, como hacer medicina y educación más baratas. Los críticos de esta idea señalan que no es óptimamente eficiente en un sentido económico, pero no están considerando el valor más amplio del trabajo para individuos y sociedad. Y con toda la innovación acelerada que tendremos, podremos permitirnos un poco de ineficiencia como el precio por mantener a las personas empleadas. Propuse un tributo de robot años atrás y la mayoría de la reacción fue que era una idea extraña. Todavía soy un gran defensor de ello. Aunque no es la solución completa a la amenaza de la IA, es parte de una respuesta sabia. De cualquier forma que levantemos dinero para más asistencia, necesita llegar a las personas que más lo necesitan, incluyendo trabajadores que pierden sus empleos a IA y robots, personas cuyas horas o salarios disminuyen, y comunidades donde las pérdidas están concentradas. Necesitamos comenzar a hacer ese trabajo ahora para que los sistemas estén listos cuando la necesidad se vuelva aguda.
           </p>
 
-          <h3 className="text-sky-400 font-semibold text-xl mt-8 mb-4">Lo que estoy haciendo.</h3>
+          <h3 className="font-display text-ribbon font-semibold text-2xl mt-10 mb-4">Lo que estoy haciendo.</h3>
           <p>
             Usaré mi voz y tiempo para poner a la IA y la equidad más alto en la agenda pública. Levantaré el tema con legisladores cada vez que visite Washington, D.C., y cuando me reúno con líderes alrededor del mundo. Estará en primer plano en mis conversaciones con las personas que están desarrollando modelos de IA. Abogaré por el marco nacional e internacional que describí antes. La Fundación Gates ayudará a impulsar el uso beneficioso, incluyendo en África. Breakthrough Energy, una compañía que fundé, usará la IA para ayudar a compañías a desarrollar energía limpia barata y ayudar a resolver el problema climático. También escribiré sobre la IA regularmente.
           </p>
@@ -209,15 +210,15 @@ export default function Article() {
           </p>
 
           {/* --- INICIO: FUENTE ORIGINAL --- */}
-          <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <span className="text-slate-500 font-mono text-sm">
+          <div className="mt-8 pt-8 border-t border-dashed border-gap flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <span className="text-ink-muted font-mono text-sm">
               Material original extraído y adaptado de su fuente oficial.
             </span>
-            <a 
-              href="https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make" 
-              target="_blank" 
+            <a
+              href="https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make"
+              target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sky-400 hover:text-white transition-colors font-mono text-sm bg-sky-400/10 px-4 py-2 rounded-lg border border-sky-400/20 hover:bg-sky-400/20"
+              className="inline-flex items-center gap-2 text-ribbon hover:text-ribbon-dark transition-colors font-mono text-sm border border-ribbon px-4 py-2 hover:bg-ribbon/10"
             >
               Ver publicación original {'->'}
             </a>

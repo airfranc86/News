@@ -1,8 +1,11 @@
 import './globals.css';
-import { Inter } from 'next/font/google';
+import { Vollkorn, Source_Sans_3, JetBrains_Mono } from 'next/font/google';
 import Link from 'next/link';
+import RibbonTag from './components/RibbonTag';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const vollkorn = Vollkorn({ subsets: ['latin'], variable: '--font-vollkorn', weight: ['600', '700'] });
+const sourceSans = Source_Sans_3({ subsets: ['latin'], variable: '--font-source-sans' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' });
 
 export const metadata = {
   title: {
@@ -40,45 +43,42 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="es" className="dark">
-      <body className={`${inter.className} bg-slate-950 text-slate-100 min-h-screen flex flex-col relative overflow-x-hidden`}>
-        {/* Fondo con brillo radial tecnológico */}
-        <div className="fixed inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(56,189,248,0.15),rgba(255,255,255,0))] pointer-events-none z-0" />
-
+    <html lang="es">
+      <body className={`${vollkorn.variable} ${sourceSans.variable} ${jetbrainsMono.variable} font-sans bg-paper text-ink min-h-screen flex flex-col`}>
         {/* Navbar Global */}
-        <header className="sticky top-0 z-50 backdrop-blur-md bg-slate-950/70 border-b border-slate-800/80">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-3 group">
-              <img src="/icon.svg" alt="Logo" className="w-8 h-8 group-hover:scale-105 transition-transform" />
-              <span className="font-extrabold text-xl tracking-tight">
-                Tech<span className="text-sky-400">News</span><span className="text-slate-500 font-mono text-xs">.sys</span>
+        <header className="border-b-2 border-ink bg-paper-raised">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
+            <Link href="/" className="flex items-center gap-2 group shrink-0">
+              <RibbonTag className="w-3 h-[18px] text-ribbon group-hover:text-ribbon-dark transition-colors" />
+              <span className="font-display font-bold text-xl tracking-tight text-ink">
+                TechNews<span className="text-ink-muted font-mono text-xs font-normal">.sys</span>
               </span>
             </Link>
-            
-            <nav className="flex items-center gap-6 text-sm font-medium text-slate-400">
-              <Link href="/" className="hover:text-sky-400 transition-colors">Inicio</Link>
-              <Link href="/bill-gates-ai" className="hover:text-sky-400 transition-colors">Artículos</Link>
+
+            <nav className="flex items-center gap-4 sm:gap-6 font-mono text-xs uppercase tracking-widest text-ink-muted">
+              <Link href="/" className="hover:text-ink underline decoration-transparent hover:decoration-ribbon underline-offset-4 transition-colors">Inicio</Link>
+              <Link href="/bill-gates-ai" className="hover:text-ink underline decoration-transparent hover:decoration-ribbon underline-offset-4 transition-colors">Artículos</Link>
             </nav>
           </div>
         </header>
 
         {/* Contenido Principal */}
-        <div className="relative z-10 flex-grow">
+        <div className="flex-grow">
           {children}
         </div>
 
         {/* Footer Global */}
-        <footer className="relative z-10 border-t border-slate-800/80">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
+        <footer className="border-t-2 border-dashed border-gap">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-ink-muted">
             <div className="flex items-center gap-3">
               <img
                 src="/autor.jpg"
                 alt="Autor"
-                className="w-9 h-9 rounded-full object-cover border border-slate-700"
+                className="w-10 h-10 object-cover border-2 border-ink"
               />
               <div>
-                <p className="text-slate-300 font-sans font-semibold text-sm">TechNews.sys Editor</p>
-                <p className="text-slate-500">Creado por Francisco</p>
+                <p className="font-sans font-semibold text-sm text-ink">TechNews.sys Editor</p>
+                <p>Catalogado por Francisco</p>
               </div>
             </div>
 
