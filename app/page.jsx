@@ -1,15 +1,20 @@
 import Link from 'next/link';
 import RibbonTag from './components/RibbonTag';
 import CustodyStamp from './components/CustodyStamp';
+import DustGatherText from './components/DustGatherText';
 
 export default function Home() {
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       {/* Encabezado del Archivo */}
       <section className="mb-12 border-b border-rule pb-8">
-        <h1 className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-ink mb-4">
+        <DustGatherText
+          as="h1"
+          text="Explorando la frontera de la Inteligencia Artificial"
+          className="font-display text-4xl sm:text-6xl font-bold tracking-tight text-ink mb-4"
+        >
           Explorando la frontera de la <span className="text-ribbon">Inteligencia Artificial</span>
-        </h1>
+        </DustGatherText>
         <p className="text-ink-muted max-w-2xl text-base sm:text-lg mb-3">
           Análisis críticos, ensayos de líderes de la industria y las transformaciones tecnológicas que están redefiniendo el futuro — cada uno con su procedencia a la vista.
         </p>

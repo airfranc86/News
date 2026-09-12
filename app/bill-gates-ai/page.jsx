@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import RibbonTag from '../components/RibbonTag';
 import CustodyStamp from '../components/CustodyStamp';
+import CopyCitationStamp from '../components/CopyCitationStamp';
 
 export default function Article() {
   return (
@@ -214,14 +215,17 @@ export default function Article() {
             <span className="text-ink-muted font-mono text-sm">
               Material original extraído y adaptado de su fuente oficial.
             </span>
-            <a
-              href="https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-ribbon hover:text-ribbon-dark transition-colors font-mono text-sm border border-ribbon px-4 py-2 hover:bg-ribbon/10"
-            >
-              Ver publicación original {'->'}
-            </a>
+            <div className="flex items-center gap-6">
+              <CopyCitationStamp citation='Bill Gates. "Un Cambio Epochal: La Era Turbulenta de la IA Está Aquí." TechNews.sys, traducido de Gatesnotes.com.' />
+              <a
+                href="https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-ribbon hover:text-ribbon-dark transition-colors font-mono text-sm border border-ribbon px-4 py-2 hover:bg-ribbon/10"
+              >
+                Ver publicación original {'->'}
+              </a>
+            </div>
           </div>
           {/* --- FIN: FUENTE ORIGINAL --- */}
 
