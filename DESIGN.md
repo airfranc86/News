@@ -126,6 +126,15 @@ Square corners throughout (`rounded: none`). Borders are 1px hairline (Rule colo
 ### Custody Stamp (signature component)
 A small-caps mono metadata line (`CustodyStamp` component) rendering `FUENTE · AUTOR · TRADUCCIÓN`-style entries joined by middle-dots, preceded by a small circular Ribbon-Red-bordered "seal" mark. Always renders after the heading/subheading it describes, never before. This is the mechanism that makes the direction's core promise — every piece shows its paper trail — visible on the page rather than buried in a footer link.
 
+### Source Citation Block (signature component)
+A row holding the "material original..." credit line, the `CopyCitationStamp` copy-to-clipboard action, and the "Ver publicación original" link to the source. Renders once, directly under the article's `<header>` (title, subtitle, custody stamp, byline) and before the body text starts — never at the bottom of the article. A reader must see where a piece came from before reading it, not after.
+
+### Reading Progress + Section Index (signature components)
+Long-form articles (roughly 1500+ words) get two wayfinding aids, both scoped to the `<article>` element's own scroll range, not the whole page: `ReadingProgress`, a 1px Ribbon-Red fill bar fixed to the very top of the viewport plus a small "% leído" tag, and `SectionIndex`, a sticky right-hand rail (desktop `xl:` and up only) listing the article's `<h3>` sections, highlighting the one currently in view and jumping to it on click. `ReadingProgress` is built on `animejs`'s `onScroll` (playback-progress sync mode); `SectionIndex` computes the active section directly off a `scroll` listener rather than `IntersectionObserver`, which Chrome throttles in backgrounded tabs. The page's own scroll physics stay untouched — no hijacked/eased native scroll.
+
+### Back to Top (signature component)
+A tiny (40px) square `BackToTop` button, fixed to the bottom-right corner, holding a drawn three-line hamburger mark (never a unicode "☰" or emoji) that links home. Rendered globally in the layout but only visible past 480px of scroll, so it never competes with content on short pages (home) and only appears once a page is actually long enough to need it (a long article). Added 2026-09-11 after the redesign dropped the header's `sticky` positioning, leaving long articles with no persistent way back to the hub.
+
 ### Navigation
 - Wordmark in Vollkorn, `.sys` suffix in muted mono. Nav links in uppercase mono; hover state changes text to Ink and draws a Ribbon-Red underline thread (the "ribbon" motif reappearing as a literal thread under text). No background pill, no active-state fill.
 
@@ -135,6 +144,8 @@ A small-caps mono metadata line (`CustodyStamp` component) rendering `FUENTE · 
 - **Do** keep Ribbon Red to provenance marks, citation links, and in-article section titles — check any new red usage against the Custody-Only Rule before shipping it.
 - **Do** put the drawn `RibbonTag` mark on any new "record" surface (a future article, a future index page) to keep the signature consistent.
 - **Do** render a `CustodyStamp` after every article's heading block once real per-article source/author/translator data exists.
+- **Do** place the Source Citation Block right after the article header, before the body — on every future article, not just this one. Confirmed by the user 2026-09-11 after the first draft shipped it at the bottom.
+- **Do** add `ReadingProgress` + `SectionIndex` to any future long-form article (roughly 1500+ words); skip both on short pieces where a full viewport or two covers the whole piece.
 
 ### Don't:
 - **Don't** add a badge, pill, or eyebrow label above any heading — the No-Eyebrow Rule is absolute, confirmed during this redesign's own finish review after the first draft shipped one by mistake.

@@ -16,6 +16,16 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
+html {
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   caret-color: var(--color-ribbon);
 }

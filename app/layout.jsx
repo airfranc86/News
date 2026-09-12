@@ -2,6 +2,7 @@ import './globals.css';
 import { Vollkorn, Source_Sans_3, JetBrains_Mono } from 'next/font/google';
 import Link from 'next/link';
 import RibbonTag from './components/RibbonTag';
+import BackToTop from './components/BackToTop';
 
 const vollkorn = Vollkorn({ subsets: ['latin'], variable: '--font-vollkorn', weight: ['600', '700'] });
 const sourceSans = Source_Sans_3({ subsets: ['latin'], variable: '--font-source-sans' });
@@ -66,6 +67,8 @@ export default function RootLayout({ children }) {
         <div className="flex-grow">
           {children}
         </div>
+
+        <BackToTop />
 
         {/* Footer Global */}
         <footer className="border-t-2 border-dashed border-gap">
