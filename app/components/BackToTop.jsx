@@ -22,9 +22,7 @@ export default function BackToTop() {
       className="fixed bottom-4 right-4 z-[60] w-10 h-10 flex items-center justify-center border-2 border-ink bg-paper-raised text-ink hover:bg-ink hover:text-paper transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-ribbon focus-visible:ring-offset-2"
     >
       <svg viewBox="0 0 16 16" className="w-4 h-4" aria-hidden="true">
-        <rect x="1" y="2.6" width="14" height="1.5" fill="currentColor" />
-        <rect x="1" y="7.25" width="14" height="1.5" fill="currentColor" />
-        <rect x="1" y="11.9" width="14" height="1.5" fill="currentColor" />
+        <path d="M8 2.5 L13 8.5 H9.5 V13.5 H6.5 V8.5 H3 Z" fill="currentColor" />
       </svg>
     </Link>
   );
