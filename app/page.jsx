@@ -2,8 +2,12 @@ import Link from 'next/link';
 import RibbonTag from './components/RibbonTag';
 import CustodyStamp from './components/CustodyStamp';
 import DustGatherText from './components/DustGatherText';
+import { getFeaturedPost } from '../data/posts';
+import { formatDate } from '../lib/formatDate';
 
 export default function Home() {
+  const post = getFeaturedPost();
+
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
       {/* Encabezado del Archivo */}
@@ -31,26 +35,29 @@ export default function Home() {
           <RibbonTag className="absolute -top-1 left-6 w-5 h-7 text-ribbon" />
 
           <div>
-            <Link href="/bill-gates-ai" className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ribbon focus-visible:ring-offset-2 focus-visible:ring-offset-paper-raised rounded-sm">
+            <Link href={`/${post.slug}`} className="focus:outline-none focus-visible:ring-2 focus-visible:ring-ribbon focus-visible:ring-offset-2 focus-visible:ring-offset-paper-raised rounded-sm">
               <h2 className="font-display text-2xl sm:text-3xl font-bold text-ink hover:text-ribbon transition-colors mb-4">
-                Un Cambio Epochal: La Era de la Inteligencia Artificial ha Comenzado
+                {post.title}
               </h2>
               <p className="text-ink-muted text-sm sm:text-base leading-relaxed mb-4">
-                Bill Gates expone su visión sobre cómo la IA transformará la educación, la medicina y el empleo, detallando las responsabilidades éticas necesarias para esta transición.
+                {post.excerpt}
               </p>
             </Link>
 
-            <CustodyStamp items={['FUENTE: GATESNOTES.COM', 'TRADUCCIÓN: TECHNEWS.SYS', '10 MIN DE LECTURA']} className="mb-2" />
+            <CustodyStamp
+              items={[`FUENTE: ${post.source.label}`, `TRADUCCIÓN: ${post.translation}`, formatDate(post.publishedAt), post.readingTime.toUpperCase()]}
+              className="mb-2"
+            />
           </div>
 
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-t border-rule pt-4 mt-6">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 border border-ink flex items-center justify-center font-display font-bold text-xs text-ink">
-                BG
+                {post.author.initials}
               </div>
-              <span className="text-xs font-medium text-ink">Bill Gates</span>
+              <span className="text-xs font-medium text-ink">{post.author.name}</span>
             </div>
-            <Link href="/bill-gates-ai" className="text-xs font-mono font-bold text-ink hover:text-ribbon transition-colors flex items-center gap-1 underline decoration-rule underline-offset-4 hover:decoration-ribbon">
+            <Link href={`/${post.slug}`} className="text-xs font-mono font-bold text-ink hover:text-ribbon transition-colors flex items-center gap-1 underline decoration-rule underline-offset-4 hover:decoration-ribbon">
               Leer registro completo <span>→</span>
             </Link>
           </div>

@@ -20,15 +20,17 @@ A diferencia de un blog de tecnología tradicional centrado en gadgets, specs o 
 
 ## Operating Context
 
-Flujo editorial humano-en-el-loop, gobernado por AGENTS.md/CLAUDE.md del repo: Francisco aporta una URL, texto o borrador de noticia; un asistente de IA (Claude Code / Vercel Plugin) procesa el contenido, lo formatea para el sitio y cita la fuente original. La IA solo ejecuta los comandos de git para publicar en producción tras la aprobación explícita de Francisco. Despliegue vía CI/CD automático en Vercel conectado a GitHub.
+Flujo editorial humano-en-el-loop, gobernado por AGENTS.md/CLAUDE.md del repo — confirmado explícitamente de nuevo el 2026-09-11 al diseñar el "sistema de auto-publicación": Francisco aporta una fuente (URL/texto pegado, o un paper de AlphaXiv), Claude arma el borrador completo (traducción/adaptación + entrada en `data/posts.js`) dentro de la misma sesión de Claude Code, y **nunca** se hace `git push` a producción sin que Francisco lo apruebe explícitamente primero (el "auto" del sistema está en que Claude arma el registro completo — no en saltear la revisión). Despliegue vía CI/CD automático en Vercel conectado a GitHub, disparado recién después de ese push aprobado.
+
+**Publicar una nota nueva, en la práctica:** agregar un objeto a `posts` en `data/posts.js` (título, fuente, autor, fecha, secciones, cuerpo) — `app/[slug]/page.jsx` la sirve automáticamente, sin tocar componentes.
 
 ## Capabilities and Constraints
 
 - Next.js (App Router) + React + Tailwind CSS v4. Sin backend ni base de datos.
 - Autor único (Francisco). Sin sistema de usuarios ni comentarios.
-- **Estado actual:** cada artículo es una carpeta estática dedicada bajo `app/` (ej. `app/bill-gates-ai/page.jsx`).
-- **Plan a corto plazo (confirmado):** migrar a rutas dinámicas `[slug]` alimentadas por `data/posts.js`, para escalar contenido sin crear una carpeta nueva por artículo. Este archivo/ruta todavía no existe en el repo — es la dirección de arquitectura acordada, no el estado presente.
-- Sin CMS externo ni servicio de terceros para contenido: todo el contenido vive versionado en el repo.
+- **Estado actual (migrado 2026-09-11):** los artículos viven como datos en `data/posts.js` y se sirven vía la ruta dinámica `app/[slug]/page.jsx` (`generateStaticParams` + `generateMetadata` por artículo). Ya no se crea una carpeta/página nueva por artículo.
+- Fuentes de contenido soportadas: URL o texto pegado por Francisco (traducido/adaptado por Claude), o un paper académico localizado vía las herramientas de AlphaXiv (MCP) y resumido/adaptado como nota de divulgación.
+- Sin CMS externo ni servicio de terceros para contenido: todo el contenido vive versionado en el repo, en `data/posts.js`.
 
 ## Brand Commitments
 
@@ -39,11 +41,11 @@ Flujo editorial humano-en-el-loop, gobernado por AGENTS.md/CLAUDE.md del repo: F
 
 ## Evidence on Hand
 
-Un artículo real publicado: traducción de un ensayo de Bill Gates sobre la era de la IA (`app/bill-gates-ai/`). No hay testimonios, casos de estudio ni métricas de tráfico documentadas — no fabricar ninguno de estos en trabajo futuro.
+Un artículo real publicado: traducción de un ensayo de Bill Gates sobre la era de la IA (`data/posts.js`, slug `bill-gates-ai`, publicado 2026-09-08 — fecha real del primer commit, no inventada). No hay testimonios, casos de estudio ni métricas de tráfico documentadas — no fabricar ninguno de estos en trabajo futuro. No inventar tampoco fechas de publicación: usar la fecha real de publicación en TechNews.sys (no la del artículo original, que ya se cubre por separado en `source`).
 
 ## Product Principles
 
 1. Profundidad sin jerga: explicar impacto tecnológico real en lenguaje accesible, sin sacrificar rigor.
 2. Impacto transversal por sobre novedad de producto: priorizar cómo la tecnología afecta disciplinas reales (clima, ciencia, sociedad) sobre reviews de gadgets o lanzamientos.
-3. Publicación humano-en-el-loop: ningún contenido llega a producción sin aprobación explícita de Francisco.
-4. Contenido versionado como código: los artículos viven en el repo (hoy carpetas estáticas, próximamente `data/posts.js`), no en un CMS externo.
+3. Publicación humano-en-el-loop: ningún contenido llega a producción sin aprobación explícita de Francisco — el sistema de auto-publicación acelera el armado del borrador, nunca salta esta aprobación.
+4. Contenido versionado como código: los artículos viven en `data/posts.js` dentro del repo, no en un CMS externo.

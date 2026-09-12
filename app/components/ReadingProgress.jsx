@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import { animate, onScroll } from 'animejs';
 
 export default function ReadingProgress({ targetRef }) {
   const barRef = useRef(null);
@@ -12,23 +11,23 @@ export default function ReadingProgress({ targetRef }) {
     const bar = barRef.current;
     if (!target || !bar) return undefined;
 
-    const anim = animate(bar, {
-      scaleX: [0, 1],
-      ease: 'linear',
-      autoplay: onScroll({
-        target,
-        enter: 'top top',
-        leave: 'bottom bottom',
-        sync: true,
-        onUpdate: (self) => {
-          if (pctRef.current) {
-            pctRef.current.textContent = `${Math.round(self.progress * 100)}%`;
-          }
-        },
-      }),
-    });
+    const update = () => {
+      const rect = target.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const progress = total > 0 ? Math.min(Math.max(-rect.top / total, 0), 1) : 1;
+      bar.style.transform = `scaleX(${progress})`;
+      if (pctRef.current) {
+        pctRef.current.textContent = `${Math.round(progress * 100)}%`;
+      }
+    };
 
-    return () => anim.revert();
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
   }, [targetRef]);
 
   return (
