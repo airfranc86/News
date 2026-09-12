@@ -2,11 +2,12 @@ import Link from 'next/link';
 import RibbonTag from './components/RibbonTag';
 import CustodyStamp from './components/CustodyStamp';
 import DustGatherText from './components/DustGatherText';
-import { getFeaturedPost } from '../data/posts';
+import { getFeaturedPost, getOtherPosts } from '../data/posts';
 import { formatDate } from '../lib/formatDate';
 
 export default function Home() {
   const post = getFeaturedPost();
+  const otherPosts = getOtherPosts();
 
   return (
     <main className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -45,7 +46,12 @@ export default function Home() {
             </Link>
 
             <CustodyStamp
-              items={[`FUENTE: ${post.source.label}`, `TRADUCCIÓN: ${post.translation}`, formatDate(post.publishedAt), post.readingTime.toUpperCase()]}
+              items={[
+                `FUENTE: ${post.source.label}`,
+                post.kind === 'translation' ? 'TRADUCCIÓN: TECHNEWS.SYS' : 'ANÁLISIS: TECHNEWS.SYS',
+                formatDate(post.publishedAt),
+                post.readingTime.toUpperCase(),
+              ]}
               className="mb-2"
             />
           </div>
@@ -63,16 +69,39 @@ export default function Home() {
           </div>
         </article>
 
-        {/* Tarjeta Secundaria (Placeholder para futuras publicaciones) */}
-        <div className="bg-paper border border-dashed border-gap p-6 flex flex-col items-center justify-center text-center">
-          <div className="w-12 h-12 border border-dashed border-gap flex items-center justify-center text-ink-muted mb-4">
-            +
+        {/* Tarjetas Secundarias: resto de los registros, o placeholder si no hay más */}
+        {otherPosts.length > 0 ? (
+          otherPosts.map((other) => (
+            <Link
+              key={other.slug}
+              href={`/${other.slug}`}
+              className="relative bg-paper-raised border border-rule p-6 flex flex-col justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-ribbon focus-visible:ring-offset-2 focus-visible:ring-offset-paper-raised"
+            >
+              <RibbonTag className="absolute -top-1 left-6 w-4 h-6 text-ribbon" />
+              <div>
+                <h3 className="font-display font-semibold text-lg text-ink hover:text-ribbon transition-colors mb-2 mt-2">
+                  {other.title}
+                </h3>
+                <p className="text-ink-muted text-xs leading-relaxed mb-3 line-clamp-3">
+                  {other.excerpt}
+                </p>
+              </div>
+              <span className="font-mono text-[11px] uppercase tracking-widest text-ink-muted">
+                {formatDate(other.publishedAt)} · {other.readingTime}
+              </span>
+            </Link>
+          ))
+        ) : (
+          <div className="bg-paper border border-dashed border-gap p-6 flex flex-col items-center justify-center text-center">
+            <div className="w-12 h-12 border border-dashed border-gap flex items-center justify-center text-ink-muted mb-4">
+              +
+            </div>
+            <h3 className="font-display font-semibold text-sm text-ink mb-1">Próximo registro</h3>
+            <p className="text-ink-muted text-xs max-w-[200px]">
+              El archivo se amplía pronto.
+            </p>
           </div>
-          <h3 className="font-display font-semibold text-sm text-ink mb-1">Próximo registro</h3>
-          <p className="text-ink-muted text-xs max-w-[200px]">
-            El archivo se amplía pronto.
-          </p>
-        </div>
+        )}
 
       </section>
     </main>

@@ -43,7 +43,7 @@ export default function ArticleView({ post }) {
               items={[
                 `FUENTE: ${post.source.label}`,
                 `AUTOR: ${post.author.name.toUpperCase()}`,
-                `TRADUCCIÓN: ${post.translation}`,
+                post.kind === 'translation' ? 'TRADUCCIÓN: TECHNEWS.SYS' : 'ANÁLISIS: TECHNEWS.SYS',
                 `PUBLICADO: ${formatDate(post.publishedAt)}`,
               ]}
               className="mb-8"
@@ -63,17 +63,17 @@ export default function ArticleView({ post }) {
           {/* --- FUENTE ORIGINAL (siempre al comienzo del registro) --- */}
           <div className="px-8 md:px-12 py-6 border-b border-dashed border-gap flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <span className="text-ink-muted font-mono text-sm">
-              Material original extraído y adaptado de su fuente oficial.
+              {post.sourceNote}
             </span>
             <div className="flex items-center gap-6">
-              <CopyCitationStamp citation={`${post.author.name}. "${post.title}." TechNews.sys, traducido de ${post.source.label}.`} />
+              <CopyCitationStamp citation={post.citationText} />
               <a
                 href={post.source.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-ribbon hover:text-ribbon-dark transition-colors font-mono text-sm border border-ribbon px-4 py-2 hover:bg-ribbon/10"
               >
-                Ver publicación original {'->'}
+                {post.sourceLinkLabel} {'->'}
               </a>
             </div>
           </div>

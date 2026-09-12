@@ -16,7 +16,10 @@ export const posts = [
       label: 'GATESNOTES.COM',
       url: 'https://www.gatesnotes.com/a-turbulent-ai-era-and-critical-choices-to-make',
     },
-    translation: 'TECHNEWS.SYS',
+    kind: 'translation',
+    sourceNote: 'Material original extraído y adaptado de su fuente oficial.',
+    sourceLinkLabel: 'Ver publicación original',
+    citationText: 'Bill Gates. "Un Cambio Epochal: La Era Turbulenta de la IA Está Aquí." TechNews.sys, traducido de Gatesnotes.com.',
     sections: [
       { id: 'riesgo-empleos', label: 'Empleos que desaparecen' },
       { id: 'riesgo-dano', label: 'IA y daño potenciado' },
@@ -87,10 +90,68 @@ export const posts = [
       { type: 'p', text: 'Esta tecnología sin precedentes demanda una respuesta global sin precedentes. Si lo hacemos bien, el pago para la humanidad será fenomenal y el mundo será un lugar más equitativo. Rara vez dejo de pensar en la IA—no porque tenga todas las respuestas, sino porque las preguntas que plantea son demasiado consecuentes para dejarlas a un pequeño grupo de tecnólogos. Los líderes a través de academia, negocios, gobierno y sociedad civil todos tienen un rol que jugar en dar forma a lo que viene.' },
     ],
   },
+  {
+    slug: 'graphcast-frente-frio-argentina',
+    title: 'El Punto Ciego de la IA Climática: Le Falla al Frente Frío del Sur',
+    subtitle: 'Un estudio revisado por pares sobre GraphCast, el modelo de Google DeepMind, expone por qué la IA pierde la mitad de su precisión prediciendo los sistemas que definen el invierno en Argentina',
+    excerpt:
+      'Investigadores de la PUCRS evaluaron GraphCast contra el modelo físico del ECMWF y encontraron una falla severa y explicable: en invierno, en la región climática que Argentina comparte con el sur de Brasil, el modelo de IA pierde más de la mitad de su capacidad para predecir frentes fríos.',
+    readingTime: '7 min de lectura',
+    publishedAt: '2026-09-12',
+    author: {
+      name: 'Francisco',
+      role: 'Editor, TechNews.sys',
+      initials: 'FA',
+    },
+    source: {
+      label: 'ARXIV:2606.06348 (PUCRS)',
+      url: 'https://www.alphaxiv.org/abs/2606.06348',
+    },
+    kind: 'analysis',
+    sourceNote: 'Análisis original basado en un estudio académico revisado por pares.',
+    sourceLinkLabel: 'Ver el paper original',
+    citationText: 'Francisco. "El Punto Ciego de la IA Climática: Le Falla al Frente Frío del Sur." TechNews.sys, 12 de septiembre de 2026, basado en Rowell Jr. & Kupssinskü, "Performance Evaluation of GraphCast for Medium-Range Weather Forecasting over Brazil," arXiv:2606.06348.',
+    sections: [
+      { id: 'cambio-silencioso', label: 'Un cambio silencioso' },
+      { id: 'graphcast-que-es', label: 'Qué es GraphCast' },
+      { id: 'punto-ciego', label: 'El punto ciego del invierno' },
+      { id: 'por-que-argentina', label: 'Por qué le pega a Argentina' },
+      { id: 'rigor-cientifico', label: 'Lo que el estudio no dice' },
+      { id: 'que-hacer', label: 'Qué hacer con esto' },
+    ],
+    body: [
+      { type: 'p', text: 'Todos los días, millones de personas en Argentina abren una aplicación del clima antes de salir de casa. La mayoría no sabe —ni tiene por qué saberlo— que detrás de esa predicción ya no hay necesariamente un modelo físico resolviendo ecuaciones de fluidos en una supercomputadora, sino una red neuronal que aprendió a "adivinar" el clima mirando décadas de datos históricos. Ese cambio, silencioso y ya bastante avanzado, tiene un costo del que casi no se habla: estos modelos de inteligencia artificial no fallan parejo en todo el planeta. Y hay evidencia reciente, revisada por pares, de que fallan justo donde más le importa a Argentina: en el frente frío de invierno.' },
+      { type: 'p', text: 'Un estudio publicado en junio de 2026 por investigadores del laboratorio de machine learning de la PUCRS (Brasil) puso a prueba GraphCast —el modelo de pronóstico climático de Google DeepMind, uno de los más citados y adoptados del mundo— contra el modelo físico de referencia del Centro Europeo de Pronósticos a Plazo Medio (ECMWF). El resultado no es un matiz técnico menor: durante el invierno austral, en el sur de Brasil, GraphCast pierde más de la mitad de su capacidad para anticipar los sistemas que traen los frentes fríos.' },
+
+      { type: 'h3', id: 'cambio-silencioso', text: 'Un cambio silencioso' },
+      { type: 'p', text: 'Durante décadas, pronosticar el clima significó una sola cosa: modelar la atmósfera como un fluido gobernado por leyes físicas —conservación de masa, momento y energía— y resolver esas ecuaciones a fuerza de cómputo. Ese es el paradigma detrás del IFS del ECMWF, considerado el estándar de oro mundial. Desde 2022, sin embargo, una nueva generación de modelos de IA aprendió a igualar o superar esa precisión sin resolver una sola ecuación física: en cambio, aprenden patrones directamente de treinta años de datos históricos (el set de reanálisis ERA5) y generan un pronóstico en segundos, a una fracción del costo computacional.' },
+      { type: 'p', text: 'Esa velocidad es la razón por la que este tipo de modelos —GraphCast y parientes como Pangu-Weather o FourCastNet— ya se usan en productos operativos, y cada vez más alimentan, de forma directa o indirecta, las aplicaciones de clima que la gente tiene en el celular.' },
+
+      { type: 'h3', id: 'graphcast-que-es', text: 'Qué es GraphCast' },
+      { type: 'p', text: 'GraphCast no es un capricho académico: es uno de los modelos que empujó a toda la industria meteorológica a repensar cómo se pronostica el clima. Funciona con pasos fijos de 6 horas: toma el estado actual de la atmósfera y el de 6 horas atrás, y proyecta 6 horas hacia adelante. Para pronosticar a 10 días, repite ese salto 40 veces seguidas, usando su propia predicción anterior como insumo de la siguiente.' },
+      { type: 'p', text: 'El paper original de GraphCast (Lam et al., 2023, publicado en Science) ya demostró que el modelo podía superar al IFS HRES en la mayoría de las variables atmosféricas a nivel global. Lo que no se sabía —porque casi nadie lo había medido en detalle a escala regional— es qué pasa cuando se lo evalúa puntualmente contra las condiciones climáticas de Sudamérica.' },
+
+      { type: 'h3', id: 'punto-ciego', text: 'El punto ciego del invierno' },
+      { type: 'p', text: 'El estudio de la PUCRS dividió a Brasil en cuatro subregiones climáticas y evaluó a GraphCast contra el IFS HRES a lo largo de cuatro estaciones del año. En tres de los cuatro meses evaluados —marzo, octubre y enero— GraphCast igualó o superó al modelo físico en todas las regiones. Julio, pleno invierno austral, fue la excepción, y de una manera muy específica: en la región Sur de Brasil —la más templada del país, la que comparte régimen climático con el norte y centro de Argentina— la capacidad de GraphCast para predecir la circulación atmosférica de gran escala (la variable que gobierna el movimiento de los frentes fríos) cayó a 47,91% de su nivel de referencia a cinco días de pronóstico. Un déficit del 52% contra el modelo físico. Es la caída más severa de todo el estudio, en cualquier variable, región o estación evaluada.' },
+      { type: 'p', text: 'La explicación técnica que proponen los autores tiene dos partes. La primera: el paso fijo de 6 horas de GraphCast —heredado de la frecuencia con la que se archivan los datos de entrenamiento— es demasiado lento para capturar la velocidad real con la que se desarrollan los sistemas frontales de invierno en latitudes medias, que pueden crecer y desplazarse en ciclos de apenas 12 a 24 horas. Con solo 2 a 4 muestras por cada ciclo de vida de un frente, el modelo acumula error de fase: sabe que algo se está moviendo, pero no exactamente cuándo ni a qué velocidad.' },
+      { type: 'p', text: 'La segunda hipótesis es geográfica, y es la que conecta directamente con Argentina: los Andes, con crestas de 3.000 a 4.000 metros en la región que va del sur de Brasil al norte de Argentina —así lo nombran, literalmente, los propios autores en el paper— actúan como una barrera que separa la dinámica atmosférica de altura (libre, por encima de la cresta) de la que ocurre cerca del suelo (canalizada por la cordillera). Esa barrera explicaría por qué el error aparece con fuerza en la circulación de altura y casi no se nota en la temperatura o la humedad cerca del suelo.' },
+
+      { type: 'h3', id: 'por-que-argentina', text: 'Por qué le pega a Argentina' },
+      { type: 'p', text: 'El estudio no evaluó territorio argentino —vale decirlo así, sin estirar el dato—. Pero la región que sí evaluó, el sur de Brasil, comparte con el centro y norte de Argentina exactamente el mecanismo que causa la falla: los mismos sistemas baroclínicos de latitudes medias que traen los frentes fríos a Córdoba, Buenos Aires o Santa Fe en invierno, y la misma cordillera de los Andes actuando como frontera atmosférica. El propio paper original de GraphCast ya había reportado un rendimiento levemente peor en el Hemisferio Sur que en el Norte; este estudio de la PUCRS es el primero en aislar con precisión cuándo y por qué ocurre esa falla.' },
+      { type: 'p', text: 'Para un país donde el frente frío no es un dato de color sino una variable que ordena desde una cosecha hasta un vuelo, que el modelo de IA más adoptado del mundo pierda buena parte de su precisión justo prediciendo esos sistemas, en la estación en la que más golpean, es una noticia que merece más atención de la que tiene.' },
+
+      { type: 'h3', id: 'rigor-cientifico', text: 'Lo que el estudio no dice' },
+      { type: 'p', text: 'Ser riguroso acá implica no exagerar el hallazgo. Los propios autores corrieron una prueba estadística sobre sus datos y encontraron algo importante: a cinco días de pronóstico —el punto exacto donde la caída se ve más dramática, 47,91%— la diferencia frente al modelo físico no llega a ser estadísticamente significativa (p = 0,57), porque la variabilidad entre pronósticos individuales es alta en ese tramo. Donde sí hay significancia estadística clara es en los tramos cercanos: a dos días (p < 0,05) y a siete días (p < 0,05). El patrón es real y tiene una explicación física coherente —no es ruido—, pero el número más citable (52% de déficit) es más una fotografía del peor momento puntual que una medida estadísticamente blindada en ese punto exacto.' },
+      { type: 'blockquote', text: 'Esto no es una advertencia menor: es, literalmente, cómo se ve la ciencia hecha bien. Un hallazgo real, con una causa mecánica identificada, comunicado sin esconder su propia incertidumbre.' },
+
+      { type: 'h3', id: 'que-hacer', text: 'Qué hacer con esto' },
+      { type: 'p', text: 'Nada de esto significa desconfiar en bloque de la aplicación de clima del celular. Significa entender que, en invierno, cuando se acerca un frente frío, el margen de error de un modelo de IA global crece —y que el pronóstico del Servicio Meteorológico Nacional, que corre modelos físicos regionales ajustados a la geografía local, sigue teniendo un rol que ningún modelo genérico entrenado lejos de los Andes puede reemplazar todavía. Si tu aplicación de clima favorita —sea la de Apple, la de Google o cualquier otra que dependa por debajo de un modelo global de este tipo— te muestra alta confianza en un pronóstico de frente frío a cinco días en pleno invierno, vale la pena, al menos esa vez, cruzarlo con la fuente nacional antes de planear el fin de semana.' },
+    ],
+  },
 ];
 
 export function getAllPosts() {
-  return posts;
+  return [...posts].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 }
 
 export function getPostBySlug(slug) {
@@ -98,5 +159,9 @@ export function getPostBySlug(slug) {
 }
 
 export function getFeaturedPost() {
-  return posts[0] ?? null;
+  return getAllPosts()[0] ?? null;
+}
+
+export function getOtherPosts() {
+  return getAllPosts().slice(1);
 }
