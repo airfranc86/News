@@ -41,6 +41,7 @@ export default function ArticleView({ post }) {
             </h2>
             <CustodyStamp
               items={[
+                post.category,
                 `FUENTE: ${post.source.label}`,
                 `AUTOR: ${post.author.name.toUpperCase()}`,
                 post.kind === 'translation' ? 'TRADUCCIÓN: TECHNEWS.SYS' : 'ANÁLISIS: TECHNEWS.SYS',

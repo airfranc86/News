@@ -47,6 +47,7 @@ export default function Home() {
 
             <CustodyStamp
               items={[
+                post.category,
                 `FUENTE: ${post.source.label}`,
                 post.kind === 'translation' ? 'TRADUCCIÓN: TECHNEWS.SYS' : 'ANÁLISIS: TECHNEWS.SYS',
                 formatDate(post.publishedAt),
@@ -79,7 +80,10 @@ export default function Home() {
             >
               <RibbonTag className="absolute -top-1 left-6 w-4 h-6 text-ribbon" />
               <div>
-                <h3 className="font-display font-semibold text-lg text-ink hover:text-ribbon transition-colors mb-2 mt-2">
+                <span className="font-mono text-[10px] uppercase tracking-widest text-ribbon">
+                  {other.category}
+                </span>
+                <h3 className="font-display font-semibold text-lg text-ink hover:text-ribbon transition-colors mb-2 mt-1">
                   {other.title}
                 </h3>
                 <p className="text-ink-muted text-xs leading-relaxed mb-3 line-clamp-3">
