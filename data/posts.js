@@ -3,6 +3,7 @@ export const posts = [
     slug: 'bill-gates-ai',
     title: 'Un Cambio Epochal: La Era Turbulenta de la IA Está Aquí',
     subtitle: 'El Plan Crítico para Asegurar que lo Bueno Supere a lo Malo',
+    category: 'OPINIÓN / IA',
     excerpt:
       'Bill Gates expone su visión sobre cómo la IA transformará la educación, la medicina y el empleo, detallando las responsabilidades éticas necesarias para esta transición.',
     readingTime: '10 min de lectura',
@@ -94,6 +95,7 @@ export const posts = [
     slug: 'graphcast-frente-frio-argentina',
     title: 'El Punto Ciego de la IA Climática: Le Falla al Frente Frío del Sur',
     subtitle: 'Un estudio revisado por pares sobre GraphCast, el modelo de Google DeepMind, expone por qué la IA pierde la mitad de su precisión prediciendo los sistemas que definen el invierno en Argentina',
+    category: 'METEO / CLIMA',
     excerpt:
       'Investigadores de la PUCRS evaluaron GraphCast contra el modelo físico del ECMWF y encontraron una falla severa y explicable: en invierno, en la región climática que Argentina comparte con el sur de Brasil, el modelo de IA pierde más de la mitad de su capacidad para predecir frentes fríos.',
     readingTime: '7 min de lectura',
