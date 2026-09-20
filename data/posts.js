@@ -150,6 +150,55 @@ export const posts = [
       { type: 'p', text: 'Nada de esto significa desconfiar en bloque de la aplicación de clima del celular. Significa entender que, en invierno, cuando se acerca un frente frío, el margen de error de un modelo de IA global crece —y que el pronóstico del Servicio Meteorológico Nacional, que corre modelos físicos regionales ajustados a la geografía local, sigue teniendo un rol que ningún modelo genérico entrenado lejos de los Andes puede reemplazar todavía. Si tu aplicación de clima favorita —sea la de Apple, la de Google o cualquier otra que dependa por debajo de un modelo global de este tipo— te muestra alta confianza en un pronóstico de frente frío a cinco días en pleno invierno, vale la pena, al menos esa vez, cruzarlo con la fuente nacional antes de planear el fin de semana.' },
     ],
   },
+  {
+    slug: 'el-nino-lluvias-argentina-octubre-diciembre',
+    title: 'El Niño Podría Ser el Más Fuerte Desde 1950: Así Cambiaría la Lluvia en Argentina',
+    subtitle: 'La NOAA da un 75% de probabilidad a un evento que superaría a todos los registrados desde 1950. Para Argentina, las proyecciones de octubre a diciembre empiezan con déficit en el centro-norte y terminan con excesos en el Litoral y la región Pampeana',
+    category: 'METEO / CLIMA',
+    excerpt:
+      'El Niño se fortalece y la NOAA estima que podría alcanzar una intensidad sin precedentes desde 1950. Las proyecciones de lluvia para Argentina no son parejas: octubre arranca con déficit en parte del centro-norte y diciembre trae excesos marcados en el Litoral y la región Pampeana.',
+    readingTime: '3 min de lectura',
+    publishedAt: '2026-09-20',
+    author: {
+      name: 'Francisco',
+      role: 'Editor, TechNews.sys',
+      initials: 'FA',
+    },
+    source: {
+      label: 'Infobae — Cecilia Castro',
+      url: 'https://www.infobae.com/america/ciencia-america/2026/09/20/el-nino-se-fortalece-y-cambia-el-escenario-de-lluvias-en-argentina-que-se-espera-para-octubre-noviembre-y-diciembre/',
+    },
+    kind: 'analysis',
+    sourceNote: 'Análisis basado en una nota periodística de Infobae, que a su vez cita proyecciones de la NOAA y del ECMWF.',
+    sourceLinkLabel: 'Ver la nota original en Infobae',
+    citationText: 'Francisco. "El Niño Podría Ser el Más Fuerte Desde 1950: Así Cambiaría la Lluvia en Argentina." TechNews.sys, 20 de septiembre de 2026, basado en Cecilia Castro, "El Niño se fortalece y cambia el escenario de lluvias en Argentina: qué se espera para octubre, noviembre y diciembre," Infobae, 20 de septiembre de 2026.',
+    sections: [
+      { id: 'que-dice-noaa', label: 'Lo que dice la NOAA' },
+      { id: 'octubre', label: 'Octubre: un arranque desparejo' },
+      { id: 'noviembre-diciembre', label: 'Noviembre y diciembre' },
+      { id: 'alcance', label: 'Qué no significa' },
+    ],
+    body: [
+      { type: 'p', text: 'El Niño, el calentamiento anómalo del Pacífico ecuatorial que reordena el clima de buena parte del planeta, entra en una fase que los pronósticos describen como excepcional. La agencia oceánica y atmosférica de Estados Unidos (NOAA) estima que este evento podría alcanzar una intensidad sin precedentes desde 1950, y para Argentina la pregunta práctica es una sola: qué pasa con la lluvia en los próximos tres meses.' },
+      { type: 'p', text: 'La respuesta corta es que no será parejo. Según las proyecciones que recoge Infobae, octubre arrancaría con déficit de lluvias en un corredor que va de Santiago del Estero a Entre Ríos, y hacia diciembre el panorama se invertiría: excesos marcados en el Litoral y la región Pampeana.' },
+
+      { type: 'h3', id: 'que-dice-noaa', text: 'Lo que dice la NOAA' },
+      { type: 'p', text: 'En agosto, la anomalía de temperatura del mar en la región Niño 3.4 —la zona del Pacífico que se usa como termómetro de referencia— fue de +1,8 °C respecto de lo normal, y en el Pacífico oriental las anomalías superaron los +3 °C. Con esos datos, la NOAA asigna una probabilidad superior al 90% a que el evento se clasifique como "muy fuerte".' },
+      { type: 'p', text: 'El número más llamativo es otro: la agencia calcula un 75% de probabilidad de que el evento alcance +2,5 °C o más en el índice RONI durante octubre-diciembre. De cumplirse, superaría en magnitud a todos los El Niño registrados desde 1950.' },
+
+      { type: 'h3', id: 'octubre', text: 'Octubre: un arranque desparejo' },
+      { type: 'p', text: 'Las proyecciones de lluvia que cita la nota, atribuidas al Centro Europeo de Predicción Meteorológica a Mediano Plazo (ECMWF), muestran para octubre un déficit de 10 a 30 milímetros en Santiago del Estero, Chaco, Santa Fe y Entre Ríos. En el otro extremo, Misiones y el este de Corrientes tendrían excesos de 30 a 50 milímetros.' },
+
+      { type: 'h3', id: 'noviembre-diciembre', text: 'Noviembre y diciembre' },
+      { type: 'p', text: 'En noviembre las anomalías positivas se desplazan hacia el oeste: el Noreste argentino (NEA) y el este de Entre Ríos superarían lo normal en más de 30 milímetros, y La Pampa y el oeste de Buenos Aires sumarían entre 10 y 20.' },
+      { type: 'p', text: 'Diciembre es el mes de mayor alcance: las anomalías positivas cubrirían desde el NEA hasta la región Pampeana y el norte de la Patagonia, con excesos de más de 50 milímetros concentrados en el NEA, Santa Fe, Entre Ríos y el este de Córdoba.' },
+
+      { type: 'h3', id: 'alcance', text: 'Qué no significa' },
+      { type: 'p', text: 'Conviene leer esto con la escala correcta. La propia nota advierte que se trata de una tendencia estacional y no de un pronóstico puntual: un evento más intenso aumenta la probabilidad de los efectos asociados a El Niño, pero no los garantiza, y no se espera que se reproduzcan con la misma fuerza en cada región.' },
+      { type: 'blockquote', text: 'Intensidad no es certeza: un evento más fuerte inclina la balanza hacia ciertos efectos, pero no los asegura en cada lugar.' },
+      { type: 'p', text: 'Un dato de contexto editorial: la nota se apoya solo en fuentes internacionales (NOAA y ECMWF) y no incluye a ningún organismo argentino. Para decisiones productivas —siembra, manejo del agua, logística—, el paso siguiente es cruzar estas tendencias con los pronósticos estacionales del Servicio Meteorológico Nacional.' },
+    ],
+  },
 ];
 
 export function getAllPosts() {
