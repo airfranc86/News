@@ -199,6 +199,63 @@ export const posts = [
       { type: 'p', text: 'Un dato de contexto editorial: la nota se apoya solo en fuentes internacionales (NOAA y ECMWF) y no incluye a ningún organismo argentino. Para decisiones productivas —siembra, manejo del agua, logística—, el paso siguiente es cruzar estas tendencias con los pronósticos estacionales del Servicio Meteorológico Nacional.' },
     ],
   },
+  {
+    slug: 'hacking-openai-libheif-sso',
+    title: 'De una Imagen a los Repositorios de OpenAI: Dos Fallas Encadenadas en Menos de 72 Horas',
+    subtitle: 'Investigadores de Hacktron encadenaron una falla en una librería de imágenes con un error de configuración en el SSO de OpenAI. Según su informe, un agente de IA hizo el grueso del trabajo técnico, con apenas unas horas de intervención humana',
+    category: 'DATA / CIENCIA',
+    excerpt:
+      'El equipo de Hacktron cuenta que, con una imagen subida al foro de OpenAI y un fallo en su inicio de sesión único, llegó a cuentas de empleados y al monorepo interno de la empresa. Más que el ataque, importa su costo: unos días de trabajo de un agente de IA y solo unas horas de trabajo humano.',
+    readingTime: '6 min de lectura',
+    publishedAt: '2026-09-20',
+    author: {
+      name: 'Francisco',
+      role: 'Editor, TechNews.sys',
+      initials: 'FA',
+    },
+    source: {
+      label: 'Hacktron — Jaiswal, Pedhapati & Maini',
+      url: 'https://www.hacktron.ai/blog/hacking-openai',
+    },
+    kind: 'analysis',
+    sourceNote: 'Análisis basado en un informe de seguridad publicado por sus propios descubridores, el equipo de Hacktron.',
+    sourceLinkLabel: 'Ver el informe original',
+    citationText: 'Francisco. "De una Imagen a los Repositorios de OpenAI: Dos Fallas Encadenadas en Menos de 72 Horas." TechNews.sys, 20 de septiembre de 2026, basado en Harsh Jaiswal, Mohan Pedhapati y Rahul Maini, "Hacking OpenAI," Hacktron, 13 de septiembre de 2026.',
+    sections: [
+      { id: 'cadena-de-fallas', label: 'La cadena de fallas' },
+      { id: 'agente-ia', label: 'El agente que hizo el trabajo' },
+      { id: 'divulgacion', label: 'La divulgación' },
+      { id: 'costo-de-atacar', label: 'Lo que cuesta atacar hoy' },
+      { id: 'como-leerlo', label: 'Cómo leer el informe' },
+      { id: 'que-hacer', label: 'Qué hacer con esto' },
+    ],
+    body: [
+      { type: 'p', text: 'El 25 de julio de 2026, un equipo de investigadores tomó cuentas de ChatGPT de empleados de OpenAI y, con una de ellas, abrió un pull request en el monorepo interno de la empresa. Según el informe que publicaron el 13 de septiembre, lo hicieron sin acceder a información sensible: bastó pedirle a Codex, el agente de programación conectado a la cuenta de un empleado, que creara la solicitud. Del primer hallazgo a ese punto pasaron menos de 72 horas.' },
+      { type: 'p', text: 'La puerta de entrada fue un formulario de carga de imágenes. El informe, firmado por Harsh Jaiswal, Mohan Pedhapati y Rahul Maini, de la firma de seguridad Hacktron, describe dos fallas críticas encadenadas: un desbordamiento de memoria en una librería que decodifica imágenes y una configuración errónea en el inicio de sesión único (SSO) de OpenAI.' },
+
+      { type: 'h3', id: 'cadena-de-fallas', text: 'La cadena de fallas' },
+      { type: 'p', text: 'El foro comunitario de OpenAI corre sobre Discourse, que envía las imágenes HEIC y HEIF —formatos habituales en teléfonos móviles— a ImageMagick, y este a la librería libheif. Ese decodificador tenía un desbordamiento de búfer que permitía leer y escribir fuera de los límites de la memoria, y quedaba expuesto a archivos armados por un atacante. Según los autores, la falla seguía ahí porque el cambio que la corregía en el proyecto original nunca se documentó como parche de seguridad ni recibió CVE. Sospechan que por eso Debian tardó en incorporarlo: la imagen de Discourse, basada en Debian 12, traía la versión vulnerable, y Debian 13 recién recibió su actualización el 8 de agosto de 2026.' },
+      { type: 'p', text: 'La segunda pieza es el SSO. El foro permite entrar con la cuenta de OpenAI, y Hacktron sostiene que una falla en ese sistema de identidad convertía el control del foro en acceso —sin ninguna acción de la víctima— a las cuentas de ChatGPT y Codex de quienes iniciaban sesión allí. Aclaran que el problema no es de Discourse: cualquier servicio con ese SSO que fuera comprometido habría llevado al mismo lugar. Y como esas cuentas pueden estar conectadas a otros servicios, el alcance teórico incluía GitHub, Slack y correo electrónico.' },
+
+      { type: 'h3', id: 'agente-ia', text: 'El agente que hizo el trabajo' },
+      { type: 'p', text: 'Según el relato, un modelo Claude Opus 4.8 revisó el paquete libheif de la imagen de Discourse y detectó las correcciones que faltaban. Con él consiguieron un exploit funcional, pero solo con una defensa de memoria (ASLR) desactivada; varias sesiones más no lograron volverlo confiable contra la configuración real. Esa noche Anthropic lanzó Opus 5: en una sesión nueva, en unas tres horas, el modelo produjo un exploit operativo y luego lo adaptó al entorno de Discourse.' },
+      { type: 'p', text: 'Después dejaron al modelo en un ciclo autónomo contra una instancia propia de Discourse Cloud. Cuentan que debieron presentarla como un desafío tipo CTF, porque el modelo se negaba a escribir exploits contra instancias remotas. En la mañana del 25 de julio el agente ya ejecutaba código allí, y con el mismo script los investigadores lo lograron en la instancia de OpenAI. Reportaron el hallazgo de inmediato y, horas después, tomaron la cuenta de un empleado cuyo Codex estaba conectado a GitHub, le pidieron abrir el pull request y detuvieron las pruebas.' },
+
+      { type: 'h3', id: 'divulgacion', text: 'La divulgación' },
+      { type: 'p', text: 'OpenAI confirmó la corrección unas 14 horas después del reporte. Discourse, que recibió su reporte ese mismo día, tuvo un arreglo listo dos días después y publicó su aviso de seguridad el 28 de julio. El 1 de septiembre OpenAI pagó 6.500 dólares de recompensa; en una aclaración incluida en el propio informe, la empresa precisa que probar contra el foro alojado por Discourse estaba excluido de su programa, y que el pago reconoce el hallazgo del lado de OpenAI, no lo hecho contra Discourse.' },
+
+      { type: 'h3', id: 'costo-de-atacar', text: 'Lo que cuesta atacar hoy' },
+      { type: 'p', text: 'El dato que más pesa no es técnico, sino económico. Según los autores, el caso requirió unos días de trabajo de un agente y solo unas horas de trabajo humano. Forma parte de una investigación más amplia, HEIF Heist, que rastreó libheif en Slack, Meta, GitHub Enterprise, Ruby on Rails y frameworks como Next.js: dos meses, tres investigadores y menos de 3.000 dólares en tokens, con uno o dos días para adaptar el exploit a cada empresa. Dicen no conocer ninguna que detectara la actividad, salvo Shopify, pese a miles de imágenes enviadas y a caídas repetidas de sus procesadores de imágenes.' },
+      { type: 'p', text: 'Observaron además que cada modelo nuevo rendía más; en la campaña general vieron otro salto con GPT-5.6 Sol, frente a objetivos de los que no sabían nada salvo que eran vulnerables. Aclaran, eso sí, que no fue hacking totalmente autónomo y que la guía de personas expertas siguió siendo importante. Su tesis es que la complejidad funcionó durante años como protección informal —convertir una falla conocida en un ataque confiable exigía experiencia escasa y mucho tiempo— y que la IA está convirtiendo esa experiencia en cómputo.' },
+      { type: 'blockquote', text: 'Si explotar una falla conocida deja de exigir meses de un especialista y pasa a costar unos días de cómputo, cambia la lista de quiénes pueden permitirse atacar.' },
+
+      { type: 'h3', id: 'como-leerlo', text: 'Cómo leer el informe' },
+      { type: 'p', text: 'Conviene leerlo con la escala correcta. Es el relato de quienes ejecutaron el ataque, y Hacktron es una empresa de seguridad que usa IA para investigar vulnerabilidades y cuyo sitio invita a contratar al equipo. Para la parte de libheif y Discourse, el informe remite a avisos públicos de Discourse y de Debian; la parte de OpenAI, en cambio, descansa en el relato de los autores, y la única voz directa de la empresa en el texto es la aclaración sobre el premio. Tampoco se explica en qué consistía técnicamente la falla del SSO —la pieza que convirtió un foro comprometido en acceso a cuentas de empleados— ni qué ocurrió con las demás empresas de la campaña.' },
+
+      { type: 'h3', id: 'que-hacer', text: 'Qué hacer con esto' },
+      { type: 'p', text: 'Si tienes un Discourse propio, reconstruye la instalación completa: una actualización desde la interfaz web puede no reemplazar la imagen de fondo con la librería vulnerable. Para cualquier aplicación que procese imágenes HEIC, HEIF o AVIF de usuarios —los autores creen muy probable que esté afectada—, hay que actualizar libheif y libde265 por el canal de seguridad de la distribución (citan la 1.23.4 como la última versión de seguridad al 14 de septiembre de 2026, aunque las distribuciones pueden corregir sobre versiones más antiguas) y aislar ese procesamiento en entornos efímeros, o desactivar esos formatos si no hacen falta.' },
+    ],
+  },
 ];
 
 export function getAllPosts() {
