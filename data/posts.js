@@ -256,6 +256,60 @@ export const posts = [
       { type: 'p', text: 'Si tienes un Discourse propio, reconstruye la instalación completa: una actualización desde la interfaz web puede no reemplazar la imagen de fondo con la librería vulnerable. Para cualquier aplicación que procese imágenes HEIC, HEIF o AVIF de usuarios —los autores creen muy probable que esté afectada—, hay que actualizar libheif y libde265 por el canal de seguridad de la distribución (citan la 1.23.4 como la última versión de seguridad al 14 de septiembre de 2026, aunque las distribuciones pueden corregir sobre versiones más antiguas) y aislar ese procesamiento en entornos efímeros, o desactivar esos formatos si no hacen falta.' },
     ],
   },
+  {
+    slug: 'frameworks-agentes-ia-langgraph-2026',
+    title: 'LangGraph Aspira a Ser el Estándar de los Agentes de IA, pero Cada Nube Defiende su Terreno',
+    subtitle: 'Un informe del asistente de alphaXiv proyecta cómo quedaría el mapa de frameworks para construir agentes al cierre de 2026: una opción generalista, otras atadas a una nube o a un proveedor de modelos, y algunos nichos. Es un pronóstico, no una medición',
+    category: 'OPINIÓN / IA',
+    excerpt:
+      'Según un informe del asistente de alphaXiv, LangGraph sería el mejor candidato a estándar para orquestar agentes complejos sin quedar atado a una nube, mientras Microsoft, Google y OpenAI dominarían cada uno su propio ecosistema. Es una proyección: conviene leerla como tal.',
+    readingTime: '4 min de lectura',
+    publishedAt: '2026-09-20',
+    author: {
+      name: 'Francisco',
+      role: 'Editor, TechNews.sys',
+      initials: 'FA',
+    },
+    source: {
+      label: 'alphaXiv Assistant',
+      url: 'https://www.alphaxiv.org/assistant/01a0ac3d-be11-7a40-8358-b58d63c2feb7',
+    },
+    kind: 'analysis',
+    sourceNote: 'Análisis basado en un informe generado por el asistente de alphaXiv. Es una proyección, no un estudio revisado por pares.',
+    sourceLinkLabel: 'Ver el informe original',
+    citationText: 'Francisco. "LangGraph Aspira a Ser el Estándar de los Agentes de IA, pero Cada Nube Defiende su Terreno." TechNews.sys, 20 de septiembre de 2026, basado en un informe del asistente de alphaXiv (alphaxiv.org/assistant).',
+    sections: [
+      { id: 'candidato-a-estandar', label: 'El candidato a estándar' },
+      { id: 'cada-nube', label: 'Cada nube juega en su terreno' },
+      { id: 'web-documentos-prototipos', label: 'Web, documentos y prototipos' },
+      { id: 'la-carrera-real', label: 'La carrera real' },
+      { id: 'como-leerlo', label: 'Cómo leer esta proyección' },
+      { id: 'que-elegir', label: 'Qué elegir según el caso' },
+    ],
+    body: [
+      { type: 'p', text: 'Elegir con qué construir un agente de inteligencia artificial dejó de ser un asunto de preferencias: el framework condiciona cuánto control habrá sobre el estado del sistema, cuánto costará cambiar de modelo y a qué nube quedará atado el producto. Un informe generado por el asistente de alphaXiv proyecta cómo quedaría el mapa al cierre de 2026, y su conclusión principal es que LangGraph sería el mejor candidato a estándar de facto para la orquestación compleja y multimodelo, mientras los gigantes de la nube dominarían cada uno su propio terreno.' },
+
+      { type: 'h3', id: 'candidato-a-estandar', text: 'El candidato a estándar' },
+      { type: 'p', text: 'El argumento a favor de LangGraph, usado junto con LangChain, reúne cuatro propiedades: estado explícito, ciclos, persistencia y supervisión humana dentro del flujo, todo sin encerrar al equipo en una nube. Su ventaja, según el informe, está en el ecosistema, las integraciones y el control fino de flujos con agentes complejos. Su costo es el peso: se trata de un stack relativamente grande, y el propio informe recomienda evitar las abstracciones que no se necesiten.' },
+
+      { type: 'h3', id: 'cada-nube', text: 'Cada nube juega en su terreno' },
+      { type: 'p', text: 'Para quienes ya operan dentro de una nube, el informe ve otra lógica. Microsoft Agent Framework es, según la documentación de Microsoft, el sucesor directo de AutoGen y Semantic Kernel, creado por los mismos equipos; ofrece .NET y Python (y Go, en vista previa), integración con Azure, telemetría y middleware. Su ventaja real, advierte el informe, aparece sobre todo si ya se trabaja sobre Azure. Google ADK se apoya en la integración nativa con Vertex, Cloud Run, IAM y BigQuery, además de los protocolos MCP y A2A, pero resulta menos atractivo fuera de GCP.' },
+      { type: 'p', text: 'En el extremo más simple está el SDK de agentes de OpenAI: una API pequeña, traspasos (handoffs) claros entre agentes y poca fricción para asistentes que usan herramientas. Su límite, según el informe, es que la durabilidad y la orquestación avanzada exigen infraestructura adicional.' },
+
+      { type: 'h3', id: 'web-documentos-prototipos', text: 'Web, documentos y prototipos' },
+      { type: 'p', text: 'Fuera de las nubes, el reparto es por especialidad. Mastra sería la opción para productos web en TypeScript, con workflows, memoria, observabilidad y un entorno de desarrollo propio (Studio) sobre un stack afín a Next.js, aunque con menos neutralidad y ecosistema que LangGraph. LlamaIndex Workflows encajaría en la recuperación de información sobre documentos, con pipelines dirigidos por eventos, parsing y retrieval, pero el informe no lo elegiría como orquestador universal. CrewAI queda como un nicho fuerte que no llega a estándar: sirve para prototipos rápidos basados en roles y tareas, y su patrón de equipos de agentes no sustituye el control de estado, la evaluación y la fiabilidad operativa.' },
+
+      { type: 'h3', id: 'la-carrera-real', text: 'La carrera real' },
+      { type: 'p', text: 'La tesis de fondo es que la competencia ya no se mide por cuántos agentes se pueden armar, sino por quién resuelve cinco problemas: ejecución durable, trazabilidad, evaluación, seguridad y conexión con herramientas mediante MCP y A2A. En ese terreno, dice el informe, LangGraph lidera en neutralidad, Microsoft y Google dominarán sus nubes y OpenAI ganará en simplicidad para los equipos que no necesitan un motor de ejecución sofisticado.' },
+      { type: 'blockquote', text: 'Un ranking de frameworks es una foto de hoy con un pronóstico encima: sirve para orientar una decisión, no para reemplazar una prueba de concepto.' },
+
+      { type: 'h3', id: 'como-leerlo', text: 'Cómo leer esta proyección' },
+      { type: 'p', text: 'Conviene leerla con la escala correcta. Es el producto de un asistente de inteligencia artificial, no un estudio revisado por pares, y su propia tabla habla de posiciones "probables" al cierre de 2026: es un pronóstico, no una medición. El texto que recibimos no cita papers ni datos de adopción que permitan contrastar el ranking, y la recomendación de LangGraph depende de priorizar la neutralidad entre nubes y modelos. Solo contrastamos de forma independiente la afirmación sobre Microsoft, que coincide con su documentación oficial. Para una decisión real, el paso siguiente es probar al candidato contra el caso concreto: nube, lenguaje del equipo y necesidad de durabilidad.' },
+
+      { type: 'h3', id: 'que-elegir', text: 'Qué elegir según el caso' },
+      { type: 'p', text: 'El informe cierra con una guía por escenario: LangGraph si el producto debe poder cambiar de modelos o de nube; Microsoft Agent Framework si se trabaja sobre Azure y .NET; Google ADK en GCP; Mastra si el equipo prioriza TypeScript. Añade una advertencia sobre el pasado inmediato: no iniciar un proyecto nuevo sobre AutoGen o Semantic Kernel. Microsoft, por su parte, describe a Agent Framework como el sucesor de ambos y publica guías de migración desde los dos.' },
+    ],
+  },
 ];
 
 export function getAllPosts() {
