@@ -310,6 +310,58 @@ export const posts = [
       { type: 'p', text: 'El informe cierra con una guía por escenario: LangGraph si el producto debe poder cambiar de modelos o de nube; Microsoft Agent Framework si se trabaja sobre Azure y .NET; Google ADK en GCP; Mastra si el equipo prioriza TypeScript. Añade una advertencia sobre el pasado inmediato: no iniciar un proyecto nuevo sobre AutoGen o Semantic Kernel. Microsoft, por su parte, describe a Agent Framework como el sucesor de ambos y publica guías de migración desde los dos.' },
     ],
   },
+  {
+    slug: 'saas-ia-cumplimiento-europa-2027',
+    title: 'En 2027 el Cumplimiento se Vuelve Producto: Lo que Europa le Exigirá al SaaS con IA',
+    subtitle: 'Un informe del asistente de alphaXiv repasa cinco normas europeas —AI Act, GDPR, Data Act, NIS2 y Cyber Resilience Act— y concluye que trazabilidad, portabilidad y control de datos pasarán de requisito legal a ventaja competitiva. Contrastamos con la Comisión Europea las fechas clave',
+    category: 'OPINIÓN / IA',
+    excerpt:
+      'Un informe del asistente de alphaXiv sostiene que 2027 será el año del cumplimiento operativo para el SaaS con IA en Europa. Contrastamos con la Comisión Europea el calendario del AI Act, el Data Act y el Cyber Resilience Act, y la conclusión es incómoda: cumplir deja de ser un trámite y pasa a ser producto.',
+    readingTime: '5 min de lectura',
+    publishedAt: '2026-09-20',
+    author: {
+      name: 'Francisco',
+      role: 'Editor, TechNews.sys',
+      initials: 'FA',
+    },
+    source: {
+      label: 'alphaXiv Assistant',
+      url: 'https://www.alphaxiv.org/assistant/01a0ac3d-be11-7a40-8358-b58d63c2feb7',
+    },
+    kind: 'analysis',
+    sourceNote: 'Análisis basado en un informe generado por el asistente de alphaXiv. Es una valoración, no un estudio revisado por pares ni asesoramiento jurídico.',
+    sourceLinkLabel: 'Ver el informe original',
+    citationText: 'Francisco. "En 2027 el Cumplimiento se Vuelve Producto: Lo que Europa le Exigirá al SaaS con IA." TechNews.sys, 20 de septiembre de 2026, basado en un informe del asistente de alphaXiv (alphaxiv.org/assistant) y contrastado con la Comisión Europea (digital-strategy.ec.europa.eu).',
+    sections: [
+      { id: 'calendario', label: 'El calendario confirmado' },
+      { id: 'resto-del-cuadro', label: 'El resto del cuadro' },
+      { id: 'quien-gana', label: 'Quién gana y quién pierde' },
+      { id: 'que-construir', label: 'Qué construir' },
+      { id: 'como-leerla', label: 'Cómo leer esta guía' },
+    ],
+    body: [
+      { type: 'p', text: 'Para una startup que vende software con inteligencia artificial en Europa, 2027 empieza a parecerse a una fecha de examen. Un informe del asistente de alphaXiv sostiene que será el año del cumplimiento operativo para el SaaS de IA: la trazabilidad, la portabilidad de datos y la ciberseguridad dejan de ser una cláusula contractual y pasan a ser funciones del producto. Contrastamos con la Comisión Europea las fechas principales de esa hoja de ruta.' },
+
+      { type: 'h3', id: 'calendario', text: 'El calendario confirmado' },
+      { type: 'p', text: 'El AI Act es la norma más comentada, y su fecha clave para este mercado se movió. Según la página oficial de la Comisión, las obligaciones para los sistemas de alto riesgo independientes del Anexo III —que el informe asocia con empleo, educación, crédito y ciertos servicios públicos— se aplicarán desde el 2 de diciembre de 2027, y las de los sistemas integrados en productos regulados, del Anexo I, desde el 2 de agosto de 2028. El aplazamiento, llamado AI Omnibus, figura como en vigor desde el 27 de julio de 2026.' },
+      { type: 'p', text: 'El Data Act llega antes. Rige desde el 12 de septiembre de 2025 y exige a los proveedores de software como servicio ofrecer interfaces abiertas y permitir exportar los datos en formatos estándar legibles por máquina. Los cargos por cambiar de proveedor, que durante la transición todavía podían cobrarse, quedan prohibidos desde el 12 de enero de 2027: cobrar por sacar los datos deja de ser una forma de retener clientes.' },
+      { type: 'p', text: 'El Cyber Resilience Act avanza en dos tiempos. La obligación de notificar vulnerabilidades explotadas activamente e incidentes graves rige desde el 11 de septiembre de 2026, y el resto de las obligaciones principales, desde el 11 de diciembre de 2027. La página de la Comisión no aclara si el SaaS puro queda dentro de su alcance; el informe lo considera relevante cuando el producto distribuye software cliente, agentes instalables o conectores.' },
+
+      { type: 'h3', id: 'resto-del-cuadro', text: 'El resto del cuadro' },
+      { type: 'p', text: 'El informe completa el mapa con dos normas más. El GDPR sigue gobernando los datos personales: base jurídica, minimización, transferencias internacionales, evaluaciones de impacto y límites a las decisiones exclusivamente automatizadas. NIS2 podría alcanzar a clientes regulados y, según país, sector y tamaño, a proveedores digitales relevantes, con más exigencias de ciberseguridad, gestión de proveedores e incidentes.' },
+
+      { type: 'h3', id: 'quien-gana', text: 'Quién gana y quién pierde' },
+      { type: 'p', text: 'De ese cuadro el informe deduce un mapa competitivo. El SaaS horizontal tipo copiloto, el que resume, redacta o busca información, tendría menos fricción: necesita transparencia, como avisar al usuario de que interactúa con una IA, pero normalmente no es de alto riesgo. El SaaS vertical regulado, el que clasifica candidatos, puntúa riesgo crediticio o prioriza admisiones, cargaría con más costo inicial en gobernanza de datos, documentación, registros y supervisión humana, pero ganaría defensa frente a los competidores que solo envuelven un modelo ajeno.' },
+      { type: 'p', text: 'Otros tres efectos. Usar un modelo de terceros no traslada la responsabilidad: la startup responde por su propio sistema, como proveedor o desplegador según el caso, así que sus contratos con los proveedores de modelos deben cubrir documentación, uso de datos, seguridad, cambios de modelo e incidentes. La arquitectura multimodelo gana valor porque evita depender de un solo proveedor, facilita la residencia de datos en Europa y permite usar modelos pequeños o locales con información sensible. Y las ventas a grandes empresas se alargan, pero el ticket sube: compras pedirá acuerdos de tratamiento de datos, subprocesadores, evidencia de seguridad y una postura explícita frente al AI Act.' },
+
+      { type: 'h3', id: 'que-construir', text: 'Qué construir' },
+      { type: 'p', text: 'El informe traduce todo esto en prioridades de producto. La primera es una advertencia: no vender automatización de decisiones sin una revisión humana efectiva. Las demás son piezas concretas: un panel de auditoría que registre versión del modelo, entrada y salida, fuentes consultadas, herramienta ejecutada, usuario, aprobador y resultado; controles por cliente para retención, exclusión de entrenamiento, región, claves propias y exportación; una ficha por función con su finalidad, clasificación según el AI Act, datos procesados y responsable; y un paquete comercial listo para Europa, con acuerdo de tratamiento de datos, documentación de seguridad y procedimiento de incidentes.' },
+      { type: 'blockquote', text: 'Si el cumplimiento se puede mostrar, medir y exportar, deja de ser un costo legal y se vuelve un argumento de venta.' },
+
+      { type: 'h3', id: 'como-leerla', text: 'Cómo leer esta guía' },
+      { type: 'p', text: 'Conviene leerla con la escala correcta. Es el producto de un asistente de inteligencia artificial, no un estudio revisado por pares: el texto que recibimos enlaza páginas oficiales de la Comisión Europea y del Comité Europeo de Protección de Datos, pero no cita papers ni datos que respalden el análisis competitivo. Contrastamos de forma independiente los calendarios del AI Act, del Data Act y del Cyber Resilience Act; GDPR, NIS2 y el mapa competitivo son valoraciones del informe. Tampoco es asesoramiento jurídico: qué obligaciones alcanzan a un producto depende de su función, de su rol como proveedor o desplegador y de cada país, y conviene revisarlo con un especialista.' },
+    ],
+  },
 ];
 
 export function getAllPosts() {
