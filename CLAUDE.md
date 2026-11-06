@@ -1,2 +1,0 @@
-@AGENTS.md
-@docs/EDITORIAL_PROTOCOL.md
